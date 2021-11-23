@@ -21,7 +21,7 @@ class RoomSeeder extends Seeder
         $r->number_of_projectors = 1;
         $r->save();
 
-        $rooms = Room::factory()->count(5)->create();
+        $rooms = Room::factory()->count(10)->create();
 
     }
 }

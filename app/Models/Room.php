@@ -13,4 +13,9 @@ class Room extends Model
     {
         return $this->belongsTo('App\Models\Floor');
     }
+
+    public function displays()
+    {
+        return $this->hasMany('App\Models\Display');
+    }
 }
