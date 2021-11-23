@@ -17,6 +17,7 @@ class EventSeeder extends Seeder
         $e = new Event(); 
         $e->name = 'Event 1';
         $e->room_id = 1;
+        $e->user_id = 1;
         $e->description = 'fgdfgderressadfgdg'; 
         $e->start_date_time ='2008-04-25 08:37:17';
         $e->end_date_time = '2008-04-25 08:37:17';
