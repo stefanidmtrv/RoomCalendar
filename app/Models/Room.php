@@ -18,4 +18,9 @@ class Room extends Model
     {
         return $this->hasMany('App\Models\Display');
     }
+
+    public function events()
+    {
+        return $this->hasMany('App\Models\Event');
+    }
 }
