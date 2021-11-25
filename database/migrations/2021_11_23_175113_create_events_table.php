@@ -18,7 +18,7 @@ class CreateEventsTable extends Migration
             $table->unsignedBigInteger('room_id');
             $table->unsignedBigInteger('user_id');
             $table->string('name');
-            $table->string('description');
+            $table->longText('description');
             $table->dateTime('start_date_time');
             $table->dateTime('end_date_time');
             $table->timestamps();

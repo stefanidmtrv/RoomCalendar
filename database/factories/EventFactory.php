@@ -25,7 +25,7 @@ class EventFactory extends Factory
             'name' => $this->faker->word(),
             'room_id' => $this->faker->randomDigitNotNull(),
             'user_id' => $this->faker->randomDigitNotNull(),
-            'description' => $this->faker->sentence(),
+            'description' => $this->faker->paragraph(),
             'start_date_time' => $this->faker->dateTime(),
             'end_date_time' => $this->faker->dateTime(),
         ];
