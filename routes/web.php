@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DisplayController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome')->name('welcome');
 });
+
+//display
+Route::get('/displays/create', [DisplayController::class, 'create'])->name('displays.create')->middleware('auth');
+Route::post('/displays', [DisplayController::class, 'store'])->name('displays.store')->middleware('auth');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
