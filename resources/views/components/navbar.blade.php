@@ -9,25 +9,7 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
-
-          @guest
-              <li class="nav-item">
-                <a class="nav-link" href="{{route('login')}}">Login</a>
-              </li>
-          @endguest
-
-          @auth
-              <form method="POST" action="{{ route('logout') }}">
-                @csrf
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('logout')}}" onclick="event.preventDefault();
-                this.closest('form').submit();">Logout</a>
-              </li>
-            
-        </form>
-          @endauth
-          
-          
+ 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Dropdown
@@ -39,14 +21,36 @@
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a class="nav-link disabled">Disabled</a>
-          </li>
+          </li> --}}
         </ul>
-        <form class="d-flex">
+
+        <ul class="navbar-nav ml-auto">
+          @guest
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('login')}}">Login</a>
+          </li>
+      @endguest
+
+      @auth
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Room 22</a>
+      </li>
+          <form method="POST" action="{{ route('logout') }}">
+            @csrf
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('logout')}}" onclick="event.preventDefault();
+            this.closest('form').submit();">Logout</a>
+          </li>
+        
+    </form>
+      @endauth
+        </ul>
+        {{-- <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+        </form> --}}
       </div>
     </div>
   </nav>

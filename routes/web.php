@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DisplayController;
+use App\Http\Controllers\RoomController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,11 @@ Route::get('/', function () {
 //display
 Route::get('/displays/create', [DisplayController::class, 'create'])->name('displays.create')->middleware('auth');
 Route::post('/displays', [DisplayController::class, 'store'])->name('displays.store')->middleware('auth');
+
+//rooms
+Route::get('/rooms', [RoomController::class, 'index'])->name('rooms.index')->middleware('auth');
+Route::get('/rooms/{room}', [RoomController::class, 'show'])->name('rooms.show')->middleware('auth');
+
 
 
 Route::get('/dashboard', function () {
