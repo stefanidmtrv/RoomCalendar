@@ -32,8 +32,8 @@
                         </blockquote>
                     </figure>
                     @endforeach
-
-            </div>
+                    <x-timetable>
+                    </x-timetable>
             
     </x-slot>
 </x-layouts.app>

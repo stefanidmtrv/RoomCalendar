@@ -9,8 +9,7 @@
     <x-slot name="slot">
 
         <a class="btn btn-outline-secondary" href="{{ route('dashboard') }}">Go Back</a>
-
-
+        
         <ul>
 
             @foreach ($rooms as $room)
