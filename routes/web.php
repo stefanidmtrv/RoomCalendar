@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DisplayController;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,8 @@ Route::post('/displays', [DisplayController::class, 'store'])->name('displays.st
 Route::get('/rooms', [RoomController::class, 'index'])->name('rooms.index')->middleware('auth');
 Route::get('/rooms/{room}', [RoomController::class, 'show'])->name('rooms.show')->middleware('auth');
 
+//events
+Route::get('/rooms/room/{event}', [EventController::class, 'show'])->name('events.show')->middleware('auth');
 
 
 Route::get('/dashboard', function () {

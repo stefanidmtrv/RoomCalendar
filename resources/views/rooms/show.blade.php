@@ -27,7 +27,7 @@
                     <figure>
                         <blockquote class="blockquote">
                             <p>
-                                <li> {{ $event->name }}</li>
+                                <li> <a href="{{route('events.show', ['event' => $event] )}}">{{ $event->name }}</a></li>
                             </p>
                         </blockquote>
                     </figure>
