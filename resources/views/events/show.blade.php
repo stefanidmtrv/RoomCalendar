@@ -1,7 +1,7 @@
 <x-layouts.app>
 
     <x-slot name="title">
-        {{ $event->id }}
+        Event: {{ $event->name }}
     </x-slot>
 
     <x-slot name="slot">
@@ -13,7 +13,7 @@
             <strong>Room: </strong> {{ $event->room_id }}
             <hr>
 
-            <strong>User: </strong> {{ $event->user_id }}
+            <strong>User: </strong> {{ $event->user->name}}
             <hr>
 
             <strong>Name:</strong> {{ $event->name }}
