@@ -1,10 +1,10 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/" class="d-flex justify-content-center mb-4">
-                <x-application-logo width=64 height=64 />
-            </a>
+<x-layouts.app>
+    <x-slot name="title">
+            Register
         </x-slot>
+    <x-auth-card>
+        
+        
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
@@ -56,4 +56,4 @@
             </div>
         </form>
     </x-auth-card>
-</x-guest-layout>
+</x-layouts.app>
