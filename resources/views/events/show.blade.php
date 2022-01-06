@@ -22,10 +22,10 @@
             <strong>Description: </strong> {{$event->description}}
             <hr>
 
-            <strong>Start: </strong> {{$event->start_date_time}}
+            <strong>Start: </strong> {{$event->start_date_time->format('Y-m-d H:i:s')}}
             <hr>
 
-            <strong>End: </strong> {{$event->end_date_time}}
+            <strong>End: </strong> {{$event->end_date_time->format('Y-m-d H:i:s')}}
             <hr>
 
             </div>

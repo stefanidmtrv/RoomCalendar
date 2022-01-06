@@ -24,7 +24,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('events.create');
     }
 
     /**
@@ -35,7 +35,26 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            // 'room_id' => 'required|integer',
+            // 'user_id' => 'nullable|integer',
+            'name' => 'required|max:255',
+            'description' => 'required|max:1000',
+            // 'start_date_time' => 'required|date|date_format:d/m/Y H:i',
+            // 'end_date_time' => 'required|date|date_format:d/m/Y H:i'
+        ]);
+
+        $e1 = new Event;
+        $e1->room_id = 5;
+        $e1->user_id = 2;
+        $e1->name = $validatedData['name'];
+        $e1->description = $validatedData['description'];
+        $e1->start_date_time = '2020-07-30 18:04:28';
+        $e1->end_date_time = '2020-07-30 19:04:28';
+        $e1->save();
+
+        return redirect()->route('login')->with('message', 'Display has been added');
+
     }
 
     /**

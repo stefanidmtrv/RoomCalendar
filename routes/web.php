@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DisplayController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\EventController;
+use App\Models\Event;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,8 @@ Route::get('/rooms/{room}', [RoomController::class, 'show'])->name('rooms.show')
 
 //events
 Route::get('/rooms/room/{event}', [EventController::class, 'show'])->name('events.show')->middleware('auth');
-
+Route::get('/rooms/room/event/create', [EventController::class, 'create'])->name('events.create')->middleware('auth');
+Route::post('/rooms/room/event', [EventController::class, 'store'])->name('events.store')->middleware('auth');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
