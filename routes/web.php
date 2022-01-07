@@ -17,8 +17,8 @@ use App\Models\Event;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome')->name('welcome');
+Route::get('/', function () { 
+    return view('welcome');
 });
 
 //display
@@ -34,8 +34,6 @@ Route::get('/rooms/room/{event}', [EventController::class, 'show'])->name('event
 Route::get('/rooms/room/event/create', [EventController::class, 'create'])->name('events.create')->middleware('auth');
 Route::post('/rooms/room/event', [EventController::class, 'store'])->name('events.store')->middleware('auth');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+
 
 require __DIR__.'/auth.php';

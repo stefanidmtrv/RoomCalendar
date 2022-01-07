@@ -4,7 +4,10 @@
         Homepage
     </x-slot>
 
-    <p>Hello World</p>
+    <x-slot name="slot">
+
+        <a href="{{ route('rooms.index')}}">rooms</a>  
     
+    </x-slot>
 </x-layouts.app>
     
