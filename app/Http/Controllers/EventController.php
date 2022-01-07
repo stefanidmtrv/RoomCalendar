@@ -25,7 +25,7 @@ class EventController extends Controller
     public function create($slot1, $slot2)
 
     {   
-        
+
         return view('events.create', ['slot1' => $slot1, 'slot2' => $slot2]);
     }
 
@@ -56,7 +56,7 @@ class EventController extends Controller
         $e1->end_date_time = '2021-11-25 ' . $validatedData['end_date_time'];
         $e1->save();
 
-        return redirect()->route('login')->with('message', 'Display has been added');
+        return redirect()->route('home')->with('message', 'Event has been added');
 
     }
 
