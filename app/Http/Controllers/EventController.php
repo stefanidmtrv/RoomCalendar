@@ -22,9 +22,11 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('events.create');
+    public function create($slot1, $slot2)
+
+    {   
+        
+        return view('events.create', ['slot1' => $slot1, 'slot2' => $slot2]);
     }
 
     /**
@@ -35,13 +37,14 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+
         $validatedData = $request->validate([
             // 'room_id' => 'required|integer',
             // 'user_id' => 'nullable|integer',
             'name' => 'required|max:255',
             'description' => 'required|max:1000',
-            // 'start_date_time' => 'required|date|date_format:d/m/Y H:i',
-            // 'end_date_time' => 'required|date|date_format:d/m/Y H:i'
+            'start_date_time' => 'required',
+            'end_date_time' => 'required'
         ]);
 
         $e1 = new Event;
@@ -49,8 +52,8 @@ class EventController extends Controller
         $e1->user_id = 2;
         $e1->name = $validatedData['name'];
         $e1->description = $validatedData['description'];
-        $e1->start_date_time = '2020-07-30 18:04:28';
-        $e1->end_date_time = '2020-07-30 19:04:28';
+        $e1->start_date_time = '2021-11-25 ' . $validatedData['start_date_time'];
+        $e1->end_date_time = '2021-11-25 ' . $validatedData['end_date_time'];
         $e1->save();
 
         return redirect()->route('login')->with('message', 'Display has been added');

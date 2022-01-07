@@ -30,6 +30,7 @@
                     @endforeach --}}
 
                     <x-timetable>
+                        <x-slot name="room">{{$room->id}}</x-slot>
                     </x-timetable>
             
     </x-slot>
