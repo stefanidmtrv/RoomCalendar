@@ -6,7 +6,6 @@ use App\Models\Room;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
-
 class RoomController extends Controller
 {
     /**
@@ -49,8 +48,18 @@ class RoomController extends Controller
      */
     public function show(Room $room)
     {
-        
-        return view('rooms.show', ['room' => $room]);
+        $monday = Carbon::now()->startOfWeek()->format('Y-m-d');
+        $tuesday = Carbon::now()->startOfWeek()->addWeekday(1)->format('Y-m-d');
+        $wednesday = Carbon::now()->startOfWeek()->addWeekday(2)->format('Y-m-d');
+        $thursday = Carbon::now()->startOfWeek()->addWeekday(3)->format('Y-m-d');
+        $friday = Carbon::now()->startOfWeek()->addWeekday(4)->format('Y-m-d');
+
+        return view('rooms.show', ['room' => $room,
+                    'monday' => $monday, 
+                    'tuesday' => $tuesday, 
+                    'wednesday' => $wednesday,
+                    'thursday' => $thursday,
+                    'friday' => $friday]);
     }
 
     /**

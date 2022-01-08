@@ -16,7 +16,8 @@
             </x-room-info>
             
             <a class="btn btn-outline-secondary" href="{{ route('rooms.index') }}">Go Back</a> 
-
+                <p>Week starting on: {{$monday}}</p>
+                
             <hr>
             {{-- <strong>Events: </strong>
                 @foreach ($room->events as $event)
@@ -31,6 +32,11 @@
 
                     <x-timetable>
                         <x-slot name="room">{{$room->id}}</x-slot>
+                        <x-slot name="monday">{{$monday}}</x-slot>
+                        <x-slot name="tuesday">{{$tuesday}}</x-slot>
+                        <x-slot name="wednesday">{{$wednesday}}</x-slot>
+                        <x-slot name="thursday">{{$thursday}}</x-slot>
+                        <x-slot name="friday">{{$friday}}</x-slot>
                     </x-timetable>
             
     </x-slot>

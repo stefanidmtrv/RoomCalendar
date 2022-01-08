@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use Illuminate\Support\Facades\Auth;
+
 
 class EventController extends Controller
 {
@@ -22,11 +24,11 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($slot1, $slot2)
+    public function create($slot1, $slot2, $date)
 
     {   
 
-        return view('events.create', ['slot1' => $slot1, 'slot2' => $slot2]);
+        return view('events.create', ['slot1' => $slot1, 'slot2' => $slot2, 'date' => $date]);
     }
 
     /**
@@ -40,7 +42,7 @@ class EventController extends Controller
 
         $validatedData = $request->validate([
             // 'room_id' => 'required|integer',
-            // 'user_id' => 'nullable|integer',
+            'user_id' => 'nullable|integer',
             'name' => 'required|max:255',
             'description' => 'required|max:1000',
             'start_date_time' => 'required',
@@ -49,11 +51,11 @@ class EventController extends Controller
 
         $e1 = new Event;
         $e1->room_id = 5;
-        $e1->user_id = 2;
+        $e1->user_id = Auth::id();
         $e1->name = $validatedData['name'];
         $e1->description = $validatedData['description'];
-        $e1->start_date_time = '2021-11-25 ' . $validatedData['start_date_time'];
-        $e1->end_date_time = '2021-11-25 ' . $validatedData['end_date_time'];
+        $e1->start_date_time = $validatedData['start_date_time'];
+        $e1->end_date_time = $validatedData['end_date_time'];
         $e1->save();
 
         return redirect()->route('home')->with('message', 'Event has been added');
