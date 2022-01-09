@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use App\View\Components\Timetable;
+use Facade\FlareClient\Time\Time;
 use Illuminate\Support\Facades\Auth;
 
 
 class EventController extends Controller
 {
+    public $booked = false;
     /**
      * Display a listing of the resource.
      *
@@ -27,10 +30,10 @@ class EventController extends Controller
     public function create($slot1, $slot2, $date)
 
     {   
-
         return view('events.create', ['slot1' => $slot1, 'slot2' => $slot2, 'date' => $date]);
     }
 
+   
     /**
      * Store a newly created resource in storage.
      *
@@ -58,10 +61,10 @@ class EventController extends Controller
         $e1->end_date_time = $validatedData['end_date_time'];
         $e1->save();
 
-        return redirect()->route('home')->with('message', 'Event has been added');
+        return redirect()->route('rooms.show', ['room' => $e1->room_id])->with('message', 'Event has been added');
 
     }
-
+    
     /**
      * Display the specified resource.
      *
