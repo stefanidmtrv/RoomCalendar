@@ -38,6 +38,7 @@ class DisplayController extends Controller
      */
     public function store(Request $request)
     {
+       
         $validatedData = $request->validate([
             'room_id' => 'required|integer',
         ]);
@@ -48,7 +49,7 @@ class DisplayController extends Controller
         $d1->secret_key = 12;
         $d1->save();
 
-        return redirect()->route('login')->with('message', 'Display has been added');
+        return redirect()->route('rooms.show', ['room' => $d1->room_id])->with('message', 'Display has been added');
     }
 
     /**
