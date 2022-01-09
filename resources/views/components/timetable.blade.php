@@ -14,7 +14,7 @@
                     <th class="text-uppercase">Friday <br>{{$friday}}</th>
                 </tr>
             </thead>
-
+            
             <tbody>
                 <tr>
                     <td class="align-middle">09:00am</td>
