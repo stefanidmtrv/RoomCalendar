@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Room;
 use App\Models\Display;
+use Illuminate\Support\Str;
 
 use Illuminate\Http\Request;
 
@@ -46,7 +47,7 @@ class DisplayController extends Controller
         $d1 = new Display;
         $d1->room_id = $validatedData['room_id'] ;
         $d1->name = "Room " . $d1->room_id;
-        $d1->secret_key = 12;
+        $d1->secret_key = Str::random(10);
         $d1->save();
         
         return redirect()->route('rooms.show', ['room' => $d1->room_id]);
