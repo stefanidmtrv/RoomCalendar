@@ -48,8 +48,8 @@ class DisplayController extends Controller
         $d1->name = "Room " . $d1->room_id;
         $d1->secret_key = 12;
         $d1->save();
-
-        return redirect()->route('rooms.show', ['room' => $d1->room_id])->with('message', 'Display has been added');
+        
+        return redirect()->route('rooms.show', ['room' => $d1->room_id]);
     }
 
     /**
