@@ -7,7 +7,7 @@
     <x-slot name="slot">
 
         <div class="container my-3"> 
-            <a class="btn btn-outline-secondary" href="{{ route('rooms.index') }}">Go Back</a> 
+            <a class="btn btn-outline-secondary" href="#" onclick="history.go(-1)">Go Back</a> 
             <br>
 
             <strong>Room: </strong> {{ $event->room_id }}
@@ -27,7 +27,8 @@
 
             <strong>End: </strong> {{$event->end_date_time->format('Y-m-d H:i:s')}}
             <hr>
-
+            
+            @if (Auth::check())
                 @if (auth()->user()->hasRole('admin'))
                             <form method='POST' action="{{ route('events.destroy', ['event' => $event]) }}">
                                 @csrf
@@ -36,8 +37,10 @@
                                 <button type="submit" class="btn btn-outline-danger btn-sm">Delete event</button>
 
                             </form>
-                @endif
-                
+                            
+                @endif    
+            @endif
+
             </div>
 
             
