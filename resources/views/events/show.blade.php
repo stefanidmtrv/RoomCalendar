@@ -30,7 +30,7 @@
 
             </div>
 
-            
+            @if (auth()->user()->hasRole('admin'))
             <form method='POST' action="{{ route('events.destroy', ['event' => $event]) }}">
                 @csrf
 
@@ -38,6 +38,7 @@
                 <button type="submit" class="btn btn-outline-danger btn-sm">Delete event</button>
 
             </form>
+            @endif
             
     </x-slot>
 </x-layouts.app>
