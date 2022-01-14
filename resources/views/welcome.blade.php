@@ -5,9 +5,11 @@
     </x-slot>
 
     <x-slot name="slot">
+        @auth
+            @if (auth()->user()->hasRole('admin'))
+                <a href="{{ route('rooms.index') }}">rooms</a>
+            @endif
+        @endauth
 
-        <a href="{{ route('rooms.index')}}">rooms</a>  
-    
     </x-slot>
 </x-layouts.app>
-    

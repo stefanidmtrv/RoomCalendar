@@ -28,7 +28,7 @@
             <strong>End: </strong> {{$event->end_date_time->format('Y-m-d H:i:s')}}
             <hr>
             
-            @if (Auth::check())
+            @auth
                 @if (auth()->user()->hasRole('admin'))
                             <form method='POST' action="{{ route('events.destroy', ['event' => $event]) }}">
                                 @csrf
@@ -39,7 +39,7 @@
                             </form>
                             
                 @endif    
-            @endif
+            @endauth
 
             </div>
 

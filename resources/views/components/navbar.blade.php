@@ -21,22 +21,29 @@
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
           </li>
-          {{-- <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-          </li> --}}
+          
         </ul>
 
         <ul class="navbar-nav ml-auto">
           @guest
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Room 22</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="{{route('login')}}">Login</a>
           </li>
       @endguest
 
       @auth
+      
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Room 22</a>
+        <a class="nav-link active" href="#">Room 22</a>
       </li>
+      @if(auth()->user()->hasRole('admin'))
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Admin</a>
+      </li>
+      @endif
           <form method="POST" action="{{ route('logout') }}">
             @csrf
         <li class="nav-item">

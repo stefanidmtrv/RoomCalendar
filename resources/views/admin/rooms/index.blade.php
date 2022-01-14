@@ -14,7 +14,7 @@
                 <div class='container my-3'>
                     <a href="{{ route('rooms.show', ['room' => $room]) }}">Room {{$room->id}}</a>
                 </div>
-                @if (Auth::check())
+                @auth
                 @if (auth()->user()->hasRole('admin'))
                             <form method='POST' action="{{ route('rooms.destroy', ['room' => $room]) }}">
                                 @csrf
@@ -25,7 +25,7 @@
                             </form>
                             
                 @endif    
-            @endif
+            @endauth
             @endforeach
 
         </ul>
