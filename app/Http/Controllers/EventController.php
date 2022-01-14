@@ -57,6 +57,7 @@ class EventController extends Controller
         $e1->user_id = Auth::id();
         $e1->name = $validatedData['name'];
         $e1->description = $validatedData['description'];
+        $e1->isBooked = true;
         $e1->start_date_time = $validatedData['start_date_time'];
         $e1->end_date_time = $validatedData['end_date_time'];
         $e1->save();

@@ -21,6 +21,7 @@ class EventSeeder extends Seeder
         $e->description = 'fgdfgderressadfgdg'; 
         $e->start_date_time ='2008-04-25 08:37:17';
         $e->end_date_time = '2008-04-25 08:37:17';
+        $e->isBooked = false;
         $e->save();
 
         $events = Event::factory()->count(10)->create();

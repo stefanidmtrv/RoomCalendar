@@ -21,6 +21,7 @@ class CreateEventsTable extends Migration
             $table->longText('description');
             $table->dateTime('start_date_time');
             $table->dateTime('end_date_time');
+            $table->boolean('isBooked');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->
