@@ -17,6 +17,7 @@ Route::post('/displays', [DisplayController::class, 'store'])->name('displays.st
 //rooms
 Route::get('/rooms', [RoomController::class, 'index'])->name('rooms.index')->middleware('role:admin');
 Route::get('/rooms/{room}', [RoomController::class, 'show'])->name('rooms.show');
+Route::delete('rooms/{room}', [RoomController::class, 'destroy'])->name('rooms.destroy')->middleware('role:admin');
 
 //events
 Route::get('/rooms/room/{event}', [EventController::class, 'show'])->name('events.show');

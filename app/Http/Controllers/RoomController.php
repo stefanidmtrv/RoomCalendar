@@ -91,8 +91,11 @@ class RoomController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Room $room)
     {
-        //
+        $room->delete();
+
+        return redirect()->route('rooms.index')->with('message', 'Event was deleted.');
+
     }
 }
