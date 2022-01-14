@@ -39,7 +39,7 @@
 
                     <div class="col-md-12 text-center">
                         <button type="submit" class="btn btn-success" value="Submit">Submit</button>
-                        <a class="btn btn-secondary" href="{{ route('rooms.index') }}">Cancel</a>
+                        <a class="btn btn-secondary" href="#" onclick="history.go(-1)">Cancel</a>
                     </div>
 
 
