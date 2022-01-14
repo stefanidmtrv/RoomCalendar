@@ -11,19 +11,18 @@ Route::get('/', function () {
 })->name('home');
 
 //display
-Route::get('/displays/create', [DisplayController::class, 'create'])->name('displays.create')->middleware('auth');
+Route::get('/displays/create', [DisplayController::class, 'create'])->name('displays.create')->middleware('role:admin');
 Route::post('/displays', [DisplayController::class, 'store'])->name('displays.store');
 
-
 //rooms
-Route::get('/rooms', [RoomController::class, 'index'])->name('rooms.index')->middleware('auth');
+Route::get('/rooms', [RoomController::class, 'index'])->name('rooms.index')->middleware('role:admin');
 Route::get('/rooms/{room}', [RoomController::class, 'show'])->name('rooms.show');
 
 //events
 Route::get('/rooms/room/{event}', [EventController::class, 'show'])->name('events.show');
 Route::get('/rooms/room/event/create/{slot1}/{slot2}/{date}', [EventController::class, 'create'])->name('events.create');
 Route::post('/rooms/room/event', [EventController::class, 'store'])->name('events.store');
-Route::delete('rooms/room/{event}', [EventController::class, 'destroy'])->name('events.destroy')->middleware('auth');
+Route::delete('rooms/room/{event}', [EventController::class, 'destroy'])->name('events.destroy')->middleware('role:admin');
 
 
 require __DIR__.'/auth.php';

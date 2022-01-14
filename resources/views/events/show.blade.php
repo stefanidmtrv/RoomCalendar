@@ -28,17 +28,19 @@
             <strong>End: </strong> {{$event->end_date_time->format('Y-m-d H:i:s')}}
             <hr>
 
+                @if (auth()->user()->hasRole('admin'))
+                            <form method='POST' action="{{ route('events.destroy', ['event' => $event]) }}">
+                                @csrf
+
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-outline-danger btn-sm">Delete event</button>
+
+                            </form>
+                @endif
+                
             </div>
 
-            @if (auth()->user()->hasRole('admin'))
-            <form method='POST' action="{{ route('events.destroy', ['event' => $event]) }}">
-                @csrf
-
-                @method('DELETE')
-                <button type="submit" class="btn btn-outline-danger btn-sm">Delete event</button>
-
-            </form>
-            @endif
+            
             
     </x-slot>
 </x-layouts.app>
