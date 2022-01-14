@@ -19,7 +19,7 @@
                 <p>Week starting on: {{$monday}}</p>
                 
             <hr>
-            {{-- <strong>Events: </strong>
+            <strong>Events: </strong>
                 @foreach ($room->events as $event)
                     <figure>
                         <blockquote class="blockquote">
@@ -28,7 +28,7 @@
                             </p>
                         </blockquote>
                     </figure>
-                    @endforeach --}}
+                    @endforeach
 
                     <x-timetable>
                         <x-slot name="room">{{$room->id}}</x-slot>

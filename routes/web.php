@@ -23,6 +23,7 @@ Route::get('/rooms/{room}', [RoomController::class, 'show'])->name('rooms.show')
 Route::get('/rooms/room/{event}', [EventController::class, 'show'])->name('events.show');
 Route::get('/rooms/room/event/create/{slot1}/{slot2}/{date}', [EventController::class, 'create'])->name('events.create');
 Route::post('/rooms/room/event', [EventController::class, 'store'])->name('events.store');
+Route::delete('rooms/room/{event}', [EventController::class, 'destroy'])->name('events.destroy')->middleware('auth');
 
 
 require __DIR__.'/auth.php';
