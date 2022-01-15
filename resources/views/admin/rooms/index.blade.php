@@ -8,27 +8,19 @@
 
     <x-slot name="slot">
         
-        <ul>
+        
+            <div class="d-grid gap-2 col-6 mx-auto">
+           @foreach ($rooms as $room) 
+            
+              
 
-            @foreach ($rooms as $room)
-                <div class='container my-3'>
-                    <a href="{{ route('rooms.show', ['room' => $room]) }}">Room {{$room->id}}</a>
-                </div>
-                @auth
-                @if (auth()->user()->hasRole('admin'))
-                            <form method='POST' action="{{ route('rooms.destroy', ['room' => $room]) }}">
-                                @csrf
-
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-outline-danger btn-sm">Delete room</button>
-
-                            </form>
-                            
-                @endif    
-            @endauth
+                    <a href="{{ route('rooms.show', ['room' => $room]) }} " type="button" class="btn btn-primary">Room {{$room->id}}</a>
+                   
+            
+                
             @endforeach
-
-        </ul>
+           </div>
+        
 
 
     </x-slot>

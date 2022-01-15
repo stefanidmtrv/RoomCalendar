@@ -15,9 +15,17 @@
                 <x-slot name="floor">{{$room->floor_id}}</x-slot>
             </x-room-info>
             
+            @auth
+                @if (auth()->user()->hasRole('admin'))
+                <a class="btn btn-outline-secondary" href="{{ route('rooms.index') }}">Go Back</a> 
+                @endif
+            @endauth
             
-                <p>Week starting on: {{$monday}} </p>
+            <div>
+                <p>Week starting on: {{$monday}}</p>
                 <p>Week ending on: {{$friday}}</p>
+            </div>
+                
                 
             <hr>
             {{--<strong>Events: </strong>
@@ -39,6 +47,20 @@
                         <x-slot name="thursday">{{$thursday}}</x-slot>
                         <x-slot name="friday">{{$friday}}</x-slot>
                     </x-timetable>
-            
+
+                    <div class="col-md-12 text-center">
+            @auth
+                @if (auth()->user()->hasRole('admin'))
+                            <form method='POST' action="{{ route('rooms.destroy', ['room' => $room]) }}">
+                                @csrf
+
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-outline-danger btn-sm">Delete room</button>
+
+                            </form>
+                            
+                @endif    
+            @endauth
+                        </div>
     </x-slot>
 </x-layouts.app>
