@@ -22,14 +22,12 @@
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '9:00:00', 'slot2' => '10:00:00', 'date' => $monday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">9:00-10:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '9:00:00', 'slot2' => '10:00:00', 'date' => $tuesday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">9:00-10:00</div>
-                        <div class="font-size13 text-light-gray">Marta Healy</div>
                     </td>
 
                     <td>
@@ -37,19 +35,16 @@
                          ['slot1'=> '9:00:00', 'slot2' => '10:00:00', 'date' => $wednesday]) }}">Book</a>
                         
                         <div class="margin-10px-top font-size14">9:00-10:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '9:00:00', 'slot2' => '10:00:00', 'date' => $thursday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">9:00-10:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '9:00:00', 'slot2' => '10:00:00', 'date' => $friday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">9:00-10:00</div>
-                        <div class="font-size13 text-light-gray">Kate Alley</div>
                     </td>
                     
                 </tr>
@@ -60,32 +55,27 @@
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '10:00:00', 'slot2' => '11:00:00', 'date' => $monday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">10:00-11:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td class="bg-light-gray">
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '10:00:00', 'slot2' => '11:00:00', 'date' => $tuesday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">10:00-11:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '10:00:00', 'slot2' => '11:00:00', 'date' => $wednesday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">10:00-11:00</div>
-                        <div class="font-size13 text-light-gray">Kate Alley</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '10:00:00', 'slot2' => '11:00:00', 'date' => $thursday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">10:00-11:00</div>
-                        <div class="font-size13 text-light-gray">Marta Healy</div>
                     </td>
                     
                     <td class="bg-light-gray">
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '10:00:00', 'slot2' => '11:00:00', 'date' => $friday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">10:00-11:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                 </tr>
 
@@ -95,31 +85,26 @@
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '11:00:00', 'slot2' => '12:00:00', 'date' => $monday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">11:00-12:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '11:00:00', 'slot2' => '12:00:00', 'date' => $tuesday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">11:00-12:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '11:00:00', 'slot2' => '12:00:00', 'date' => $wednesday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">11:00-12:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '11:00:00', 'slot2' => '12:00:00', 'date' => $thursday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">11:00-12:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '11:00:00', 'slot2' => '12:00:00', 'date' => $friday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">11:00-12:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     
                 </tr>
@@ -130,31 +115,26 @@
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '12:00:00', 'slot2' => '13:00:00', 'date' => $monday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">12:00-01:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '12:00:00', 'slot2' => '13:00:00', 'date' => $tuesday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">12:00-01:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '12:00:00', 'slot2' => '13:00:00', 'date' => $wednesday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">12:00-01:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '12:00:00', 'slot2' => '13:00:00', 'date' => $thursday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">12:00-01:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '12:00:00', 'slot2' => '13:00:00', 'date' => $friday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">12:00-01:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     
                 </tr>
@@ -166,31 +146,26 @@
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '13:00:00', 'slot2' => '14:00:00', 'date' => $monday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">01:00-02:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '13:00:00', 'slot2' => '14:00:00', 'date' => $tuesday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">01:00-02:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '13:00:00', 'slot2' => '14:00:00', 'date' => $wednesday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">01:00-02:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '13:00:00', 'slot2' => '14:00:00', 'date' => $thursday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">01:00-02:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '13:00:00', 'slot2' => '14:00:00', 'date' => $friday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">01:00-02:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     
                 </tr>
@@ -200,31 +175,26 @@
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '14:00:00', 'slot2' => '15:00:00', 'date' => $monday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">02:00-03:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '14:00:00', 'slot2' => '15:00:00', 'date' => $tuesday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">02:00-03:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '14:00:00', 'slot2' => '15:00:00', 'date' => $wednesday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">02:00-03:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '14:00:00', 'slot2' => '15:00:00', 'date' => $thursday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">02:00-03:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '14:00:00', 'slot2' => '15:00:00', 'date' => $friday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">02:00-03:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     
                 </tr>
@@ -234,31 +204,26 @@
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '15:00:00', 'slot2' => '16:00:00', 'date' => $monday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">03:00-04:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '15:00:00', 'slot2' => '16:00:00', 'date' => $tuesday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">03:00-04:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '15:00:00', 'slot2' => '16:00:00', 'date' => $wednesday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">03:00-04:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '15:00:00', 'slot2' => '16:00:00', 'date' => $thursday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">03:00-04:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '15:00:00', 'slot2' => '16:00:00', 'date' => $friday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">03:00-04:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     
                 </tr>
@@ -268,31 +233,26 @@
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '16:00:00', 'slot2' => '17:00:00', 'date' => $monday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">04:00-05:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '16:00:00', 'slot2' => '17:00:00', 'date' => $tuesday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">04:00-05:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '16:00:00', 'slot2' => '17:00:00', 'date' => $wednesday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">04:00-05:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '16:00:00', 'slot2' => '17:00:00', 'date' => $thursday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">04:00-05:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '16:00:00', 'slot2' => '17:00:00', 'date' => $friday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">10:00-11:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     
                 </tr>
@@ -302,31 +262,26 @@
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '17:00:00', 'slot2' => '18:00:00', 'date' => $monday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">05:00-06:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '17:00:00', 'slot2' => '18:00:00', 'date' => $tuesday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">05:00-06:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '17:00:00', 'slot2' => '18:00:00', 'date' => $wednesday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">05:00-06:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '17:00:00', 'slot2' => '18:00:00', 'date' => $thursday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">05:00-06:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('events.create',
                          ['slot1'=> '17:00:00', 'slot2' => '18:00:00', 'date' => $friday]) }}">Book</a>
                         <div class="margin-10px-top font-size14">05:00-06:00</div>
-                        <div class="font-size13 text-light-gray">Ivana Wong</div>
                     </td>
                     
                 </tr>

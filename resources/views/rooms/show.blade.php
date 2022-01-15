@@ -15,12 +15,13 @@
                 <x-slot name="floor">{{$room->floor_id}}</x-slot>
             </x-room-info>
             
-            <a class="btn btn-outline-secondary" href="{{ route('rooms.index') }}">Go Back</a> 
-                <p>Week starting on: {{$monday}}</p>
+            
+                <p>Week starting on: {{$monday}} </p>
+                <p>Week ending on: {{$friday}}</p>
                 
             <hr>
-            <strong>Events: </strong>
-                @foreach ($room->events as $event)
+            {{--<strong>Events: </strong>
+                 @foreach ($room->events as $event)
                     <figure>
                         <blockquote class="blockquote">
                             <p>
@@ -28,7 +29,7 @@
                             </p>
                         </blockquote>
                     </figure>
-                    @endforeach
+                    @endforeach --}}
 
                     <x-timetable>
                         <x-slot name="room">{{$room->id}}</x-slot>
