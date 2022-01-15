@@ -4,11 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DisplayController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\EventController;
+use App\Models\Room;
 
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+
+Route::get('/', [RoomController::class, 'show2'])->name('home');
 
 //admin
 Route::group(['middleware' => ['role:admin']], function () {

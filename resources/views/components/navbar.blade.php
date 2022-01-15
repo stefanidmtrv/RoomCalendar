@@ -41,7 +41,12 @@
       </li>
       @if(auth()->user()->hasRole('admin'))
       <li class="nav-item">
-        <a class="nav-link active" href="#">Admin</a>
+        
+        <a class="nav-link active" href= "{{ route('rooms.index') }}">
+          
+          Admin
+      </a>
+
       </li>
       @endif
           <form method="POST" action="{{ route('logout') }}">

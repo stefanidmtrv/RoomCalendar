@@ -61,6 +61,22 @@ class RoomController extends Controller
                     'thursday' => $thursday,
                     'friday' => $friday]);
     }
+    public function show2()
+    {
+        $room = Room::get()[5];
+        $monday = Carbon::now()->startOfWeek()->format('Y-m-d');
+        $tuesday = Carbon::now()->startOfWeek()->addWeekday(1)->format('Y-m-d');
+        $wednesday = Carbon::now()->startOfWeek()->addWeekday(2)->format('Y-m-d');
+        $thursday = Carbon::now()->startOfWeek()->addWeekday(3)->format('Y-m-d');
+        $friday = Carbon::now()->startOfWeek()->addWeekday(4)->format('Y-m-d');
+
+        return view('rooms.show', ['room' => $room,
+                    'monday' => $monday, 
+                    'tuesday' => $tuesday, 
+                    'wednesday' => $wednesday,
+                    'thursday' => $thursday,
+                    'friday' => $friday]);
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -98,4 +114,5 @@ class RoomController extends Controller
         return redirect()->route('rooms.index')->with('message', 'Event was deleted.');
 
     }
+    
 }

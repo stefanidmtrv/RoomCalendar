@@ -15,12 +15,12 @@
                 <x-slot name="floor">{{$room->floor_id}}</x-slot>
             </x-room-info>
             
-            @auth
+            {{-- @auth
                 @if (auth()->user()->hasRole('admin'))
                 <a class="btn btn-outline-secondary" href="{{ route('rooms.index') }}">Go Back</a> 
                 @endif
             @endauth
-            
+             --}}
             <div>
                 <p>Week starting on: {{$monday}}</p>
                 <p>Week ending on: {{$friday}}</p>
