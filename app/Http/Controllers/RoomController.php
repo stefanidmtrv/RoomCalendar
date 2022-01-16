@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Room;
+use App\Models\Event;
+
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+
 
 class RoomController extends Controller
 {
@@ -61,21 +65,52 @@ class RoomController extends Controller
                     'thursday' => $thursday,
                     'friday' => $friday]);
     }
-    public function show2()
-    {
-        $room = Room::get()[5];
-        $monday = Carbon::now()->startOfWeek()->format('Y-m-d');
-        $tuesday = Carbon::now()->startOfWeek()->addWeekday(1)->format('Y-m-d');
-        $wednesday = Carbon::now()->startOfWeek()->addWeekday(2)->format('Y-m-d');
-        $thursday = Carbon::now()->startOfWeek()->addWeekday(3)->format('Y-m-d');
-        $friday = Carbon::now()->startOfWeek()->addWeekday(4)->format('Y-m-d');
+    // $lastHour = Carbon::now()->setHour(5);
 
-        return view('rooms.show', ['room' => $room,
-                    'monday' => $monday, 
-                    'tuesday' => $tuesday, 
-                    'wednesday' => $wednesday,
-                    'thursday' => $thursday,
-                    'friday' => $friday]);
+        // // dd($lastHour);
+        // $currentTime = Carbon::now();
+        // $istry = true;
+        // if($currentTime < '2022-01-03 10:00:00') {
+        //     $istry = false;
+        // }
+        // dd($istry);
+        // $events = DB::table('events')
+        //         ->where('room_id', 4)
+        //         ->where('start_date_time', $currentTime)
+        //         ->get();
+    public function showAvailability()
+    {
+        $room = Room::get()[3];
+        $events = $room->events;
+
+        $lastHour = Carbon::now()->floorHour(1)->format('Y-m-d H:i:s');
+        $nextHour = Carbon::now()->ceilHour(1)->format('Y-m-d H:i:s');
+        
+        $currentHour = Carbon::now()->format('H:i');
+        $currentDate = Carbon::now()->format('Y-m-d');
+
+        $myEvent = new Event;
+        
+        $isAvailable = true;
+
+        foreach($events as $event){
+
+            if(($event->start_date_time == $lastHour) && ($event->end_date_time == $nextHour)){
+                $isAvailable = false;
+                $myEvent = $event;
+                        $myEvent->save();
+
+            }
+        }
+
+        return view('rooms.availability', ['room' => $room,
+                    'isAvailable' => $isAvailable,
+                    'lastHour' => $lastHour,
+                    'nextHour' => $nextHour,
+                    'currentHour' => $currentHour,
+                    'currentDate' => $currentDate,
+                ]);
+                    
     }
 
     /**

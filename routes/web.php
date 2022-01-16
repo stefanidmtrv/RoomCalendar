@@ -8,7 +8,7 @@ use App\Models\Room;
 
 
 
-Route::get('/', [RoomController::class, 'show2'])->name('home');
+Route::get('/', [RoomController::class, 'showAvailability'])->name('home');
 
 //admin
 Route::group(['middleware' => ['role:admin']], function () {
