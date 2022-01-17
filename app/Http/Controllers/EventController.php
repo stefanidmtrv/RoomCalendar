@@ -62,7 +62,7 @@ class EventController extends Controller
         $e1->end_date_time = $validatedData['end_date_time'];
         $e1->save();
 
-        return redirect()->route('rooms.show', ['room' => $e1->room_id])->with('message', 'Event has been added');
+        return redirect()->route('home');
 
     }
     

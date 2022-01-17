@@ -48,23 +48,23 @@
                             <button type="submit" class="btn btn-outline-danger btn-sm">Delete room</button>
 
                         </form>
-
+            <strong>Events: </strong>
+                        @foreach ($room->events as $event)
+                            <figure>
+                                <blockquote class="blockquote">
+                                    <p>
+                                        <li> <a href="{{ route('events.show', ['event' => $event]) }}">{{ $event->name }}</a>
+                                        </li>
+                                    </p>
+                                </blockquote>
+                            </figure>
+                        @endforeach
                     @endif
                 @endauth
 
             </div>
             
-            <strong>Events: </strong>
-            @foreach ($room->events as $event)
-                <figure>
-                    <blockquote class="blockquote">
-                        <p>
-                            <li> <a href="{{ route('events.show', ['event' => $event]) }}">{{ $event->name }}</a>
-                            </li>
-                        </p>
-                    </blockquote>
-                </figure>
-            @endforeach
+            
 
     </x-slot>
 </x-layouts.app>

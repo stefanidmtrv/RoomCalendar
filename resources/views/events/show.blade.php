@@ -13,8 +13,8 @@
             <strong>Room: </strong> {{ $event->room_id }}
             <hr>
 
-            <strong>User: </strong> {{ $event->user->name}}
-            <hr>
+            {{-- <strong>User: </strong> {{ $event->user->name}}
+            <hr> --}}
 
             <strong>Name:</strong> {{ $event->name }}
             <hr>
