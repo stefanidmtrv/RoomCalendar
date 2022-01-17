@@ -7,11 +7,11 @@
                 <tr class="bg-light-gray">
                     <th class="text-uppercase">Time
                     </th>
-                    <th class="text-uppercase">Monday <br> {{$monday}} </th>
-                    <th class="text-uppercase">Tuesday <br>{{$tuesday}}</th>
-                    <th class="text-uppercase">Wednesday <br>{{$wednesday}}</th>
-                    <th class="text-uppercase">Thursday <br>{{$thursday}}</th>
-                    <th class="text-uppercase">Friday <br>{{$friday}}</th>
+                    <th class="text-uppercase">Monday <br> {{$monday2}} </th>
+                    <th class="text-uppercase">Tuesday <br>{{$tuesday2}}</th>
+                    <th class="text-uppercase">Wednesday <br>{{$wednesday2}}</th>
+                    <th class="text-uppercase">Thursday <br>{{$thursday2}}</th>
+                    <th class="text-uppercase">Friday <br>{{$friday2}}</th>
                 </tr>
             </thead>
             

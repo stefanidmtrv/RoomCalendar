@@ -58,14 +58,30 @@ class RoomController extends Controller
         $thursday = Carbon::now()->startOfWeek()->addWeekday(3)->format('Y-m-d');
         $friday = Carbon::now()->startOfWeek()->addWeekday(4)->format('Y-m-d');
 
-        return view('rooms.show', ['room' => $room,
-                    'monday' => $monday, 
-                    'tuesday' => $tuesday, 
-                    'wednesday' => $wednesday,
-                    'thursday' => $thursday,
-                    'friday' => $friday]);
+        $monday2 = Carbon::now()->startOfWeek()->format('d');
+            $tuesday2 = Carbon::now()->startOfWeek()->addWeekday(1)->format('d');
+            $wednesday2 = Carbon::now()->startOfWeek()->addWeekday(2)->format('d');
+            $thursday2 = Carbon::now()->startOfWeek()->addWeekday(3)->format('d');
+            $friday2 = Carbon::now()->startOfWeek()->addWeekday(4)->format('d');
+            
+
+
+
+        return view('rooms.show', [
+            'room' => $room,
+            'monday' => $monday,
+            'tuesday' => $tuesday,
+            'wednesday' => $wednesday,
+            'thursday' => $thursday,
+            'friday' => $friday,
+            'monday2' => $monday2,
+            'tuesday2' => $tuesday2,
+            'wednesday2' => $wednesday2,
+            'thursday2' => $thursday2,
+            'friday2' => $friday2,
+        ]);
     }
-    
+
     public function showAvailability()
     {
         $room = Room::get()[3];
@@ -73,7 +89,7 @@ class RoomController extends Controller
 
         $lastHour = Carbon::now()->floorHour(1)->format('Y-m-d H:i:s');
         $nextHour = Carbon::now()->ceilHour(1)->format('Y-m-d H:i:s');
-        
+
         $lastHourNoDate = Carbon::now()->floorHour(1)->format('H:i:s');
         $nextHourNoDate = Carbon::now()->ceilHour(1)->format('H:i:s');
 
@@ -81,29 +97,28 @@ class RoomController extends Controller
         $currentDate = Carbon::now()->format('Y-m-d');
 
         $myEvent = new Event;
-        
+
         $isAvailable = true;
 
-        foreach($events as $event){
+        foreach ($events as $event) {
 
-            if(($event->start_date_time == $lastHour) && ($event->end_date_time == $nextHour)){
+            if (($event->start_date_time == $lastHour) && ($event->end_date_time == $nextHour)) {
                 $isAvailable = false;
                 $myEvent = $event;
                 $myEvent->save();
-
             }
         }
 
-        return view('rooms.availability', ['room' => $room,
-                    'isAvailable' => $isAvailable,
-                    'lastHour' => $lastHour,
-                    'nextHour' => $nextHour,
-                    'lastHourNoDate' => $lastHourNoDate,
-                    'nextHourNoDate' => $nextHourNoDate,
-                    'currentHour' => $currentHour,
-                    'currentDate' => $currentDate,
-                ]);
-                    
+        return view('rooms.availability', [
+            'room' => $room,
+            'isAvailable' => $isAvailable,
+            'lastHour' => $lastHour,
+            'nextHour' => $nextHour,
+            'lastHourNoDate' => $lastHourNoDate,
+            'nextHourNoDate' => $nextHourNoDate,
+            'currentHour' => $currentHour,
+            'currentDate' => $currentDate,
+        ]);
     }
 
     /**
@@ -140,7 +155,5 @@ class RoomController extends Controller
         $room->delete();
 
         return redirect()->route('rooms.index')->with('message', 'Event was deleted.');
-
     }
-    
 }
