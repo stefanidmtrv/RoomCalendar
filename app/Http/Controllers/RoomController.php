@@ -65,19 +65,7 @@ class RoomController extends Controller
                     'thursday' => $thursday,
                     'friday' => $friday]);
     }
-    // $lastHour = Carbon::now()->setHour(5);
-
-        // // dd($lastHour);
-        // $currentTime = Carbon::now();
-        // $istry = true;
-        // if($currentTime < '2022-01-03 10:00:00') {
-        //     $istry = false;
-        // }
-        // dd($istry);
-        // $events = DB::table('events')
-        //         ->where('room_id', 4)
-        //         ->where('start_date_time', $currentTime)
-        //         ->get();
+    
     public function showAvailability()
     {
         $room = Room::get()[3];
@@ -86,6 +74,9 @@ class RoomController extends Controller
         $lastHour = Carbon::now()->floorHour(1)->format('Y-m-d H:i:s');
         $nextHour = Carbon::now()->ceilHour(1)->format('Y-m-d H:i:s');
         
+        $lastHourNoDate = Carbon::now()->floorHour(1)->format('H:i:s');
+        $nextHourNoDate = Carbon::now()->ceilHour(1)->format('H:i:s');
+
         $currentHour = Carbon::now()->format('H:i');
         $currentDate = Carbon::now()->format('Y-m-d');
 
@@ -98,7 +89,7 @@ class RoomController extends Controller
             if(($event->start_date_time == $lastHour) && ($event->end_date_time == $nextHour)){
                 $isAvailable = false;
                 $myEvent = $event;
-                        $myEvent->save();
+                $myEvent->save();
 
             }
         }
@@ -107,6 +98,8 @@ class RoomController extends Controller
                     'isAvailable' => $isAvailable,
                     'lastHour' => $lastHour,
                     'nextHour' => $nextHour,
+                    'lastHourNoDate' => $lastHourNoDate,
+                    'nextHourNoDate' => $nextHourNoDate,
                     'currentHour' => $currentHour,
                     'currentDate' => $currentDate,
                 ]);

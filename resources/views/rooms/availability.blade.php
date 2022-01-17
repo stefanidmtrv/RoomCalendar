@@ -37,9 +37,11 @@
                 <h1> Unavailable </h1>
             @else
             <h1> Available </h1>
-<br>
+
+                <br>
+
             <a class="btn btn-success btn-lg" href="{{ route('events.create',
-            ['slot1'=> $lastHour, 'slot2' => $nextHour, 'date' => $currentDate]) }}">Book now</a>
+            ['slot1'=> $lastHourNoDate, 'slot2' => $nextHourNoDate, 'date' => $currentDate]) }}">Book now</a>
 
             @endif
 
