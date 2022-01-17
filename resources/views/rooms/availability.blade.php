@@ -27,23 +27,27 @@
                 </svg>
 
                 <strong>{{ $currentHour }}</strong>
-                </p>
+                
 
             </div>
+            </p>
 
+            
             @if ($isAvailable == false)
                 <h1> Unavailable </h1>
             @else
             <h1> Available </h1>
-
-            <a class="btn btn-success" href="{{ route('events.create',
-            ['slot1'=> $lastHour, 'slot2' => $nextHour, 'date' => $currentDate]) }}">Book</a>
+<br>
+            <a class="btn btn-success btn-lg" href="{{ route('events.create',
+            ['slot1'=> $lastHour, 'slot2' => $nextHour, 'date' => $currentDate]) }}">Book now</a>
 
             @endif
 
+            <br>
+            <br>
             <a class="btn btn-outline-secondary" href="{{ route('rooms.show', ['room' => $room->id]) }}">Timetable</a>
 
-
+            
 
 
 
