@@ -27,10 +27,10 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($slot1, $slot2, $date)
+    public function create($slot1, $slot2, $date, $roomid)
 
     {   
-        return view('events.create', ['slot1' => $slot1, 'slot2' => $slot2, 'date' => $date]);
+        return view('events.create', ['slot1' => $slot1, 'slot2' => $slot2, 'date' => $date, 'roomid' => $roomid]);
     }
 
    
@@ -53,7 +53,7 @@ class EventController extends Controller
         ]);
 
         $e1 = new Event;
-        $e1->room_id = 5;
+        $e1->room_id = $request->roomid;
         $e1->user_id = Auth::id();
         $e1->name = $validatedData['name'];
         $e1->description = $validatedData['description'];

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pin;
 use App\Models\Room;
 use App\Models\Display;
 use Illuminate\Support\Str;
@@ -28,7 +29,8 @@ class DisplayController extends Controller
     public function create()
     {
         $rooms = Room::get();
-        return view('display.create', ['rooms'=>$rooms]);
+        $pins = Pin::get();
+        return view('display.create', ['rooms'=>$rooms, 'pins' => $pins]);
     }
 
     /**
@@ -49,7 +51,7 @@ class DisplayController extends Controller
         $d1->name = "Room " . $d1->room_id;
         $d1->secret_key = Str::random(10);
         $d1->save();
-        
+
         return redirect()->route('rooms.show', ['room' => $d1->room_id]);
     }
 

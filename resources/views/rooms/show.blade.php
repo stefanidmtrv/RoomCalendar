@@ -1,7 +1,8 @@
 <x-layouts.app>
 
     <x-slot name="title">
-        Room {{ $room->id }}
+        Room {{ $room->id }} 
+        {{-- ; PIN {{ $pin->pin }} --}}
     </x-slot>
 
     <x-slot name="slot">

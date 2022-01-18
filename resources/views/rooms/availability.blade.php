@@ -41,7 +41,7 @@
                 <br>
 
             <a class="btn btn-success btn-lg" href="{{ route('events.create',
-            ['slot1'=> $lastHourNoDate, 'slot2' => $nextHourNoDate, 'date' => $currentDate]) }}">Book now</a>
+            ['slot1'=> $lastHourNoDate, 'slot2' => $nextHourNoDate, 'date' => $currentDate, 'roomid' => $room->id]) }}">Book now</a>
 
             @endif
 

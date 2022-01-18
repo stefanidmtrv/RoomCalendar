@@ -31,6 +31,8 @@
                         <input type="text" name="name" value="{{ old('name') }}" class="form-control"></p>
                     </div>
 
+                    <input type="hidden" name="roomid" value="{{ $roomid }}">
+
                     <div class="form-group mb-4">
                         <p>Add a description: </p>
                         <input type="text" name="description" value="{{ old('description') }}" class="form-control">

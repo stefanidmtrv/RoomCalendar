@@ -22,6 +22,16 @@
                         @endforeach
                     </select>
 
+                    {{-- <select class="form-select mb-4" aria-label="Default select example" name="pin">
+                        <option>Select a pin...</option>
+                        @foreach ($pins as $pin)
+                            <option value="{{ $pin->id }}">
+                                {{ $pin->pin }}
+                            </option>
+
+                        @endforeach
+                    </select> --}}
+
 
                     <div class="col-md-12 text-center">
                         <button type="submit" class="btn btn-success" value="Submit">Submit</button>
