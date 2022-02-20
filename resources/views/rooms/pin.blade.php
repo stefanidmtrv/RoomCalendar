@@ -1,7 +1,7 @@
 <x-layouts.app>
 
     <x-slot name="title">
-        Device Initialization
+        Login
     </x-slot>
 
     <x-slot name="slot">
@@ -11,7 +11,7 @@
             <form method='POST' action="{{ route('rooms.pin') }}">
                 @csrf
                 <div class="form-group mb-4">
-                    <p>PIN: </p>
+                    <p><b>Student/Staff number: </b></p>
                     <input type="text" name="pin" class="form-control"></p>
                 </div>
 

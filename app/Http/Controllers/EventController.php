@@ -62,8 +62,7 @@ class EventController extends Controller
         $e1->end_date_time = $validatedData['end_date_time'];
         $e1->save();
 
-        return redirect()->route('home');
-
+        return redirect()->route('availability', ['room' => $e1->room_id]);
     }
     
     /**

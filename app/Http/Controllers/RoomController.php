@@ -168,6 +168,8 @@ class RoomController extends Controller
 
     public function pinStore(Request $request)
     {
+        
+        $rooms = Room::get();
 
         if ($request->pin) {
             $pin = new Pin();
@@ -175,9 +177,8 @@ class RoomController extends Controller
             $pin->room = 0;
             $pin->Save();
 
-            
         }
-        return view('welcome');
+        return view('admin.rooms.index', ['rooms' => $rooms]);
     }
 
     /**
