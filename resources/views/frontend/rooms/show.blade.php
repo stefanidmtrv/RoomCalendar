@@ -1,7 +1,7 @@
 <x-layouts.app>
 
     <x-slot name="title">
-        Room {{ $room->id }} 
+        Room {{ $room->id }}
         {{-- ; PIN {{ $pin->pin }} --}}
     </x-slot>
 
@@ -16,9 +16,9 @@
                 <x-slot name="floor">{{ $room->floor_id }}</x-slot>
             </x-room-info>
 
-            
-                    <a class="btn btn-outline-secondary"  href="#" onclick="history.go(-1)">Go Back</a>
-              
+
+            <a class="btn btn-outline-secondary" href="#" onclick="history.go(-1)">Go Back</a>
+
 
             <div>
                 <p>Week starting on: {{ $monday }}</p>
@@ -53,12 +53,13 @@
                             <button type="submit" class="btn btn-outline-danger btn-sm">Delete room</button>
 
                         </form>
-            <strong>Events: </strong>
+                        <strong>Events: </strong>
                         @foreach ($room->events as $event)
                             <figure>
                                 <blockquote class="blockquote">
                                     <p>
-                                        <li> <a href="{{ route('events.show', ['event' => $event]) }}">{{ $event->name }}</a>
+                                        <li> <a
+                                                href="{{ route('events.show', ['event' => $event]) }}">{{ $event->name }}</a>
                                         </li>
                                     </p>
                                 </blockquote>
@@ -68,8 +69,8 @@
                 @endauth
 
             </div>
-            
-            
+
+
 
     </x-slot>
 </x-layouts.app>

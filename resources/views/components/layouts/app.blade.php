@@ -9,12 +9,15 @@
     <title>Calendar</title>
   </head>
   <body>
-      <div class='container my-3'>
+      {{-- <div class='container my-3'> --}}
+      {{-- <div class='container my-3'> --}}
+       <x-navigation>
 
-     <x-navbar>
+     </x-navigation> 
+     
+     {{-- @include('backend.components.sidenav') --}}
 
-     </x-navbar>
-     <div class='container my-3'>
+     
       @if (session('message'))
       <p><b>{{session('message')}}</b></p>
       @endif
@@ -35,7 +38,7 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ $title }}
             </h2>
-            
+             
         </div>
     </header>
 

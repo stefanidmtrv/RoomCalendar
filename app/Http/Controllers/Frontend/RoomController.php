@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
 
 use App\Models\Room;
 use App\Models\Pin;
 use App\Models\Event;
-
+use App\Http\Controllers\Controller;
+use App\Models\StNum;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -15,11 +16,7 @@ use Illuminate\Support\Facades\DB;
 
 class RoomController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $rooms = Room::get();
@@ -28,43 +25,15 @@ class RoomController extends Controller
 
     public function index2()
     {
-        return view('rooms.index2');
+        return view('frontend.rooms.index2');
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show(Room $room,  Request $request)
     {
 
-        $pin = $request->session()->get('pin');
+        $stnum = $request->session()->get('stnum');
 
-        if ($pin || auth()->user()) {
+        if ($stnum || auth()->user()) {
 
             $monday = Carbon::now()->startOfWeek()->format('Y-m-d');
             $tuesday = Carbon::now()->startOfWeek()->addWeekday(1)->format('Y-m-d');
@@ -79,9 +48,9 @@ class RoomController extends Controller
             $friday2 = Carbon::now()->startOfWeek()->addWeekday(4)->format('d');
 
 
-            return view('rooms.show', [
+            return view('frontend.rooms.show', [
                 'room' => $room,
-                'pin'  => $pin,
+                'pin'  => $stnum,
                 'monday' => $monday,
                 'tuesday' => $tuesday,
                 'wednesday' => $wednesday,
@@ -94,29 +63,29 @@ class RoomController extends Controller
                 'friday2' => $friday2,
             ]);
         } else {
-            return view('rooms.pin');
+            return view('frontend.rooms.pin');
         }
-        }
+    }
 
     public function pinCheck(Request $request)
     {
-
-            $pin = Pin::where('pin', $request->pin)->first();
-
-            if($pin) {
-                $request->session()->put('pin', $pin);
-                return back();
-            } else {
-                return back();
-            }
+        
+        $stnum = StNum::where('stnum', $request->stnum)->first();
+        
+        if ($stnum) {
+            $request->session()->put('stnum', $stnum);
+            return back();
+        } else {
+            return back();
+        }
     }
 
     public function showAvailability(Request $request, Room $room)
     {
-    
-        $pin = $request->session()->get('pin');
-        
-        if ($pin || auth()->user()) {
+
+        $stnum = $request->session()->get('stnum');
+
+        if ($stnum || auth()->user()) {
 
             $room = Room::where('id', $room->id)->first();
             $events = $room->events;
@@ -143,7 +112,7 @@ class RoomController extends Controller
                 }
             }
 
-            return view('rooms.availability', [
+            return view('frontend.rooms.availability', [
                 'room' => $room,
                 'isAvailable' => $isAvailable,
                 'lastHour' => $lastHour,
@@ -154,62 +123,32 @@ class RoomController extends Controller
                 'currentDate' => $currentDate,
             ]);
         } else {
-            return view('rooms.pin');
+            return view('frontend.rooms.pin');
         }
     }
 
     public function showPins()
     {
 
-        $pins = Pin::get();
+        $stnums = StNum::get();
 
-        return view('rooms.mpins')->with('pins', $pins);
+        return view('frontend.rooms.mpins')->with('pins', $stnums);
     }
 
     public function pinStore(Request $request)
     {
-        
+
         $rooms = Room::get();
 
-        if ($request->pin) {
-            $pin = new Pin();
-            $pin->pin = $request->pin;
-            $pin->room = 0;
-            $pin->Save();
-
+        if ($request->stnum) {
+            $stnum = new StNum();
+            $stnum->stnum = $request->stnum;
+            // $pin->room = 0;
+            $stnum->Save();
         }
         return view('admin.rooms.index', ['rooms' => $rooms]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Room $room)
     {
         $room->delete();

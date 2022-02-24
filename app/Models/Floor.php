@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Floor extends Model
 {
     use HasFactory;
-
+    protected $table = "floors";
+    protected $guarded = ['id'];
+    
     public function rooms()
     {
         return $this->hasMany('App\Models\Room');

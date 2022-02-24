@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use App\Http\Controllers\Controller;
 use App\View\Components\Timetable;
 use Facade\FlareClient\Time\Time;
 use Illuminate\Support\Facades\Auth;

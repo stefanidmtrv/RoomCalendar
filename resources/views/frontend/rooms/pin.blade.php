@@ -12,7 +12,7 @@
                 @csrf
                 <div class="form-group mb-4">
                     <p><b>Student/Staff number: </b></p>
-                    <input type="text" name="pin" class="form-control"></p>
+                    <input type="text" name="stnum" class="form-control"></p>
                 </div>
 
                 <div class="col-md-12 text-center">
