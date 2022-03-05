@@ -8,7 +8,7 @@ use App\Http\Controllers\Backend\StudentManagement;
 use App\Http\Controllers\Backend\RoomsController;
 use App\Http\Controllers\Frontend\EventController;
 use App\Http\Controllers\Backend\AdminController;
-use App\Http\Controllers\Frontend\RoomController;
+use App\Http\Controllers\Frontend\FrontController;
 
 
 use App\Models\Room;
@@ -49,23 +49,29 @@ Route::namespace('Backend')->prefix('admin')->name('admin.')->group(function () 
 
 //frontend
 Route::namespace('Frontend')->group(function () {
-    Route::get('/', [RoomController::class, 'index2'])->name('home');
-    Route::get('/availability/{room}', [RoomController::class, 'showAvailability'])->name('availability');
 
-    Route::get('/displays/create', [DisplayController::class, 'create'])->name('displays.create');
-    Route::get('admin/rooms', [RoomController::class, 'index'])->name('rooms.index')->middleware('role:admin');
-    Route::delete('rooms/{room}', [RoomController::class, 'destroy'])->name('rooms.destroy')->middleware('role:admin');
-    Route::delete('rooms/room/{event}', [EventController::class, 'destroy'])->name('events.destroy')->middleware('role:admin');
-    Route::get('rooms/pins', [RoomController::class, 'showPins'])->name('rooms.pins');
+    Route::get('rooms', [FrontController::class, 'rooms'])->name('rooms');
+    Route::get('/availability/{room}', [FrontController::class, 'showAvailability'])->name('availability');
+    Route::get('/rooms/{room}', [FrontController::class, 'show'])->name('rooms.show');
+    Route::get('/rooms/pin', [FrontController::class, 'pinInit'])->name('rooms.pin');
+    Route::post('/rooms/pin', [FrontController::class, 'pinCheck'])->name('rooms.pin');
+    Route::post('/rooms/pin-store', [FrontController::class, 'pinStore'])->name('pin.store');
+
+    //old
+    Route::get('/', [RoomController::class, 'index2'])->name('home');
+    //Route::get('/availability/{room}', [RoomController::class, 'showAvailability'])->name('availability');
+
+    // Route::get('/displays/create', [DisplayController::class, 'create'])->name('displays.create');
+    // Route::get('admin/rooms', [RoomController::class, 'index'])->name('rooms.index')->middleware('role:admin');
+    // Route::delete('rooms/{room}', [RoomController::class, 'destroy'])->name('rooms.destroy')->middleware('role:admin');
+    // Route::delete('rooms/room/{event}', [EventController::class, 'destroy'])->name('events.destroy')->middleware('role:admin');
+    // Route::get('rooms/pins', [RoomController::class, 'showPins'])->name('rooms.pins');
 
     //display
     Route::post('/displays', [DisplayController::class, 'store'])->name('displays.store');
 
     //rooms
-    Route::get('/rooms/{room}', [RoomController::class, 'show'])->name('rooms.show');
-    Route::get('/rooms/pin', [RoomController::class, 'pinInit'])->name('rooms.pin');
-    Route::post('/rooms/pin', [RoomController::class, 'pinCheck'])->name('rooms.pin');
-    Route::post('/rooms/pin-store', [RoomController::class, 'pinStore'])->name('pin.store');
+   
 
     //events
     Route::get('/rooms/room/{event}', [EventController::class, 'show'])->name('events.show');
