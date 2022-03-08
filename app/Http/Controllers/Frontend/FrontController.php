@@ -27,21 +27,15 @@ class FrontController extends Controller
     {
 
         $stnum = $request->session()->get('stnum');
-
+        
+        
         if ($stnum || auth()->user()) {
-
+            
             $monday = Carbon::now()->startOfWeek()->format('Y-m-d');
             $tuesday = Carbon::now()->startOfWeek()->addWeekday(1)->format('Y-m-d');
             $wednesday = Carbon::now()->startOfWeek()->addWeekday(2)->format('Y-m-d');
             $thursday = Carbon::now()->startOfWeek()->addWeekday(3)->format('Y-m-d');
             $friday = Carbon::now()->startOfWeek()->addWeekday(4)->format('Y-m-d');
-
-            $monday2 = Carbon::now()->startOfWeek()->format('d');
-            $tuesday2 = Carbon::now()->startOfWeek()->addWeekday(1)->format('d');
-            $wednesday2 = Carbon::now()->startOfWeek()->addWeekday(2)->format('d');
-            $thursday2 = Carbon::now()->startOfWeek()->addWeekday(3)->format('d');
-            $friday2 = Carbon::now()->startOfWeek()->addWeekday(4)->format('d');
-
 
             return view('frontend.rooms.show', [
                 'room' => $room,
@@ -51,11 +45,8 @@ class FrontController extends Controller
                 'wednesday' => $wednesday,
                 'thursday' => $thursday,
                 'friday' => $friday,
-                'monday2' => $monday2,
-                'tuesday2' => $tuesday2,
-                'wednesday2' => $wednesday2,
-                'thursday2' => $thursday2,
-                'friday2' => $friday2,
+                
+                
             ]);
         } else {
             return view('frontend.rooms.pin');
@@ -77,6 +68,7 @@ class FrontController extends Controller
 
     public function showAvailability(Request $request, Room $room)
     {
+        //$league->date_start->isPast()
 
         $stnum = $request->session()->get('stnum');
 

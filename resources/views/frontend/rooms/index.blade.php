@@ -10,7 +10,7 @@
         
             <a href="availability/{{$room->id}}" type="button" class="btn btn-success">Room:<br>{{ $room->id }}</a>
             @empty
-                No rooms avaliale
+                No rooms available
             @endforelse
         </div>
     </x-slot>

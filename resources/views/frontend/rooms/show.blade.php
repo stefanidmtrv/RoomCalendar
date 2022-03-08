@@ -2,7 +2,7 @@
 
     <x-slot name="title">
         Room {{ $room->id }}
-        {{-- ; PIN {{ $pin->pin }} --}}
+      
     </x-slot>
 
     <x-slot name="slot">
@@ -21,8 +21,8 @@
 
 
             <div>
-                <p>Week starting on: {{ $monday }}</p>
-                <p>Week ending on: {{ $friday }}</p>
+                <p>Week starting on: {{\Carbon\Carbon::now()->startOfWeek()->addWeekday(0)->format('d-m-Y')}}</p>
+                <p>Week ending on: {{\Carbon\Carbon::now()->startOfWeek()->addWeekday(4)->format('d-m-Y')}}</p>
             </div>
 
 
@@ -30,17 +30,12 @@
 
 
             <x-timetable>
-                <x-slot name="room">{{ $room->id }}</x-slot>
+                <x-slot name="room">{{ $room->id}}</x-slot>
                 <x-slot name="monday">{{ $monday }}</x-slot>
                 <x-slot name="tuesday">{{ $tuesday }}</x-slot>
                 <x-slot name="wednesday">{{ $wednesday }}</x-slot>
                 <x-slot name="thursday">{{ $thursday }}</x-slot>
                 <x-slot name="friday">{{ $friday }}</x-slot>
-                <x-slot name="monday2">{{ $monday2 }}</x-slot>
-                <x-slot name="tuesday2">{{ $tuesday2 }}</x-slot>
-                <x-slot name="wednesday2">{{ $wednesday2 }}</x-slot>
-                <x-slot name="thursday2">{{ $thursday2 }}</x-slot>
-                <x-slot name="friday2">{{ $friday2 }}</x-slot>
             </x-timetable>
 
             <div class="col-md-12 text-center">

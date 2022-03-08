@@ -45,7 +45,7 @@
                     @if (auth()->user()->hasRole('admin'))
                         <li class="nav-item">
 
-                            <a class="nav-link active" href="{{ route('rooms.index') }}">
+                            <a class="nav-link active">
 
                                 Admin
                             </a>
