@@ -69,9 +69,11 @@ class FrontController extends Controller
     public function showAvailability(Request $request, Room $room)
     {
         //$league->date_start->isPast()
+        // $lastd = Carbon::now()->ceilHour(1)->isPast();
+        // dd($lastd);
 
         $stnum = $request->session()->get('stnum');
-
+        
         if ($stnum || auth()->user()) {
 
             $room = Room::where('id', $room->id)->first();

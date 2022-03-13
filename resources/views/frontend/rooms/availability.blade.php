@@ -35,6 +35,14 @@
             
             @if ($isAvailable == false)
                 <h1> Unavailable </h1>
+                @if(\App\Models\Event::where('room_id', $room->id)->where('start_date_time',
+                        \Carbon\Carbon::now()->ceilHour(1)->format('Y-m-d H:i:s'))->exists())
+            <div>
+                <p> Next meeting: {{\Carbon\Carbon::now()->ceilHour(1)->format('H:i:s')}}
+                </p>
+            </div>
+            
+                @endif
             @else
             <h1> Available </h1>
 
@@ -42,15 +50,21 @@
 
             <a class="btn btn-success btn-lg" href="{{ route('events.create',
             ['slot1'=> $lastHourNoDate, 'slot2' => $nextHourNoDate, 'date' => $currentDate, 'roomid' => $room->id]) }}">Book now</a>
+                @if(\App\Models\Event::where('room_id', $room->id)->where('start_date_time',
+                \Carbon\Carbon::now()->ceilHour(1)->format('Y-m-d H:i:s'))->exists())
+                
+                <div>
+                    <p>Next meeting: {{\Carbon\Carbon::now()->ceilHour(1)->format('H:i:s')}}
 
+                    </p>
+                </div>
+
+                @endif
             @endif
 
             <br>
             <br>
             <a class="btn btn-outline-secondary" href="{{ route('rooms.show', ['room' => $room->id]) }}">Timetable</a>
-
-            
-
 
 
     </x-slot>
