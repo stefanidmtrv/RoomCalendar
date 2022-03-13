@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\DB;
 
 class FrontController extends Controller
 {
+    public function index()
+    {
+        return view('frontend.rooms.index');
+    }
 
     public function rooms()
     {

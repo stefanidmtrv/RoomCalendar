@@ -38,34 +38,7 @@
                 <x-slot name="friday">{{ $friday }}</x-slot>
             </x-timetable>
 
-            <div class="col-md-12 text-center">
-                @auth
-                    @if (auth()->user()->hasRole('admin'))
-                        <form method='POST' action="{{ route('rooms.destroy', ['room' => $room]) }}">
-                            @csrf
-
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-outline-danger btn-sm">Delete room</button>
-
-                        </form>
-                        <strong>Events: </strong>
-                        @foreach ($room->events as $event)
-                            <figure>
-                                <blockquote class="blockquote">
-                                    <p>
-                                        <li> <a
-                                                href="{{ route('events.show', ['event' => $event]) }}">{{ $event->name }}</a>
-                                        </li>
-                                    </p>
-                                </blockquote>
-                            </figure>
-                        @endforeach
-                    @endif
-                @endauth
-
-            </div>
-
-
+         
 
     </x-slot>
 </x-layouts.app>

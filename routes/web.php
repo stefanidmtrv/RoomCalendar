@@ -58,7 +58,7 @@ Route::namespace('Frontend')->group(function () {
     Route::post('/rooms/pin-store', [FrontController::class, 'pinStore'])->name('pin.store');
 
     //old
-    Route::get('/', [RoomController::class, 'index2'])->name('home');
+    Route::get('/', [FrontController::class, 'rooms'])->name('home');
     //Route::get('/availability/{room}', [RoomController::class, 'showAvailability'])->name('availability');
 
     // Route::get('/displays/create', [DisplayController::class, 'create'])->name('displays.create');
@@ -68,7 +68,7 @@ Route::namespace('Frontend')->group(function () {
     // Route::get('rooms/pins', [RoomController::class, 'showPins'])->name('rooms.pins');
 
     //display
-    Route::post('/displays', [DisplayController::class, 'store'])->name('displays.store');
+    // Route::post('/displays', [DisplayController::class, 'store'])->name('displays.store');
 
     //rooms
    

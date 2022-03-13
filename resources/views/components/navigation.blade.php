@@ -36,16 +36,11 @@
                 @endguest
 
                 @auth
-                    @php
-                        $url = \URL::current();
-                    @endphp
-                    {{-- <li class="nav-item">
-                        <a class="nav-link active" href="#">Room: {{ substr(strrchr(rtrim($url, '/'), '/'), 1) }}</a>
-                    </li> --}}
+                    
                     @if (auth()->user()->hasRole('admin'))
                         <li class="nav-item">
 
-                            <a class="nav-link active">
+                            <a class="nav-link active" href="{{ route('admin.dashboard') }}">
 
                                 Admin
                             </a>
