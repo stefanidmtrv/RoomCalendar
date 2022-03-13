@@ -19,7 +19,7 @@ class StudentManagement extends Controller
 
     public function show () {
 
-        $page_title = 'Student Number Management';
+        $page_title = 'Student/Staff Number Management';
         $empty_message = 'Not found';
         $stNums = StNum::latest()->paginate(20);
 
@@ -29,7 +29,7 @@ class StudentManagement extends Controller
 
     public function showCreate() {
 
-        $page_title = 'Create new student number';
+        $page_title = 'Create new student/staff number';
 
         return view('backend.stmgmt.create', compact('page_title'));
     }

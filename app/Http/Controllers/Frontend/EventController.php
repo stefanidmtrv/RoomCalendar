@@ -46,24 +46,24 @@ class EventController extends Controller
 
         $validatedData = $request->validate([
             // 'room_id' => 'required|integer',
-            'user_id' => 'nullable|integer',
+            'user_number' => 'nullable|max:10',
             'name' => 'required|max:255',
             'description' => 'required|max:1000',
             'start_date_time' => 'required',
             'end_date_time' => 'required'
         ]);
 
-        $e1 = new Event;
-        $e1->room_id = $request->roomid;
-        $e1->user_id = Auth::id();
-        $e1->name = $validatedData['name'];
-        $e1->description = $validatedData['description'];
-        $e1->isBooked = true;
-        $e1->start_date_time = $validatedData['start_date_time'];
-        $e1->end_date_time = $validatedData['end_date_time'];
-        $e1->save();
+        $event = Event::create([
+            'room_id' => $request->room_id,
+            'user_id' => $request->user_number,
+            'name' => $request->name,
+            'description' => $request->description,
+            'isBooked' => true,
+            'start_date_time' => $request->start_date_time,
+            'end_date_time' => $request->end_date_time
+        ]);
 
-        return redirect()->route('availability', ['room' => $e1->room_id]);
+        return redirect()->route('availability', ['room' => $event->room_id]);
     }
     
     /**

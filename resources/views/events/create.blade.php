@@ -36,7 +36,13 @@
                     <div class="form-group mb-4">
                         <p>Add a description: </p>
                         <input type="text" name="description" value="{{ old('description') }}" class="form-control">
-                        </p>
+                        
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <p>Student/Staff number: </p>
+                        <input type="text" name="user_number" value="{{ old('user_number') }}" class="form-control">
+                        
                     </div>
 
                     <div class="col-md-12 text-center">

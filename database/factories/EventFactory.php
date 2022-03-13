@@ -24,7 +24,7 @@ class EventFactory extends Factory
         return [
             'name' => $this->faker->word(),
             'room_id' => $this->faker->randomDigitNotNull(),
-            'user_id' => $this->faker->randomDigitNotNull(),
+            'user_number' => '1909435',
             'description' => $this->faker->paragraph(),
             'isBooked' => false,
             'start_date_time' => $this->faker->dateTime(),

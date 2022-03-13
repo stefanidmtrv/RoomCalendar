@@ -16,16 +16,13 @@ class CreateEventsTable extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('room_id');
-            $table->unsignedBigInteger('user_id')->nullable();
+            $table->string('user_number')->nullable();
             $table->string('name');
             $table->longText('description');
             $table->dateTime('start_date_time');
             $table->dateTime('end_date_time');
-            $table->boolean('isBooked');
+            $table->boolean('isBooked')->nullable();
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->
-            on('users')->onDelete('cascade')->onUpdate('cascade');
 
             $table->foreign('room_id')->references('id')->
             on('rooms')->onDelete('cascade')->onUpdate('cascade');

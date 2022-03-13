@@ -9,7 +9,7 @@ use App\Http\Controllers\Backend\RoomsController;
 use App\Http\Controllers\Frontend\EventController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Frontend\FrontController;
-
+use App\Http\Controllers\Backend\BackEventController;
 
 use App\Models\Room;
 
@@ -44,6 +44,12 @@ Route::namespace('Backend')->prefix('admin')->name('admin.')->group(function () 
         Route::get('room/create', [RoomsController::class, 'showCreate'])->name('room.create');
         Route::post('room/store', [RoomsController::class, 'store'])->name('room.store');
         Route::get('room/delete/{id}', [RoomsController::class, 'delete'])->name('room.delete');
+
+        //Event management
+        Route::get('event', [BackEventController::class, 'show'])->name('event');
+        Route::get('event/create', [BackEventController::class, 'showCreate'])->name('event.create');
+        Route::post('event/store', [BackEventController::class, 'store'])->name('event.store');
+        Route::get('event/delete/{id}', [BackEventController::class, 'delete'])->name('event.delete');
     });
 });
 

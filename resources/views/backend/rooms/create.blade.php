@@ -22,7 +22,7 @@
                                             <div class="input-group">
                                                 <label class="w-100 font-weight-bold">@lang('Floor ID') <span
                                                         class="text-danger">*</span></label>
-                                                <input type="text" class="form-control " placeholder="@lang('Name')" name="floor_id"
+                                                <input type="text" class="form-control " placeholder="@lang('Floor ID')" name="floor_id"
                                                        value="{{ old('floor_id') }}"/>
                                                 <label class="w-100 font-weight-bold">@lang('Table capacity') <span
                                                         class="text-danger">*</span></label>
