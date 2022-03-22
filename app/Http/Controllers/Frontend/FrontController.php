@@ -29,7 +29,8 @@ class FrontController extends Controller
 
     public function show(Room $room,  Request $request)
     {
-
+        //$bb = Carbon::parse(Carbon::now()->startOfWeek()->addWeekday(1)->format('Y-m-d 12:50:00'))->isPast();
+        //dd($bb);
         $stnum = $request->session()->get('stnum');
         
         
@@ -48,9 +49,7 @@ class FrontController extends Controller
                 'tuesday' => $tuesday,
                 'wednesday' => $wednesday,
                 'thursday' => $thursday,
-                'friday' => $friday,
-                
-                
+                'friday' => $friday
             ]);
         } else {
             return view('frontend.rooms.pin');

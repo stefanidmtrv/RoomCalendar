@@ -23,12 +23,12 @@
                         {{$event}}
                         @endforeach --}}
 
-                         @if(\App\Models\Event::where('room_id', $room)->where('start_date_time',
+                        @if(\App\Models\Event::where('room_id', $room)->where('start_date_time',
                          \Carbon\Carbon::now()->startOfWeek()->addWeekday(0)->format('Y-m-d 09:00:00'))->exists())
                           
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">9:00-10:00</div>    
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(0)->format('Y-m-d 10:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">9:00-10:00</div>
                         @else
@@ -44,7 +44,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">9:00-10:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(1)->format('Y-m-d 10:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">9:00-10:00</div>
                         @else
@@ -60,7 +60,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">9:00-10:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(2)->format('Y-m-d 10:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">9:00-10:00</div>
                         @else
@@ -75,7 +75,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">9:00-10:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(3)->format('Y-m-d 10:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">9:00-10:00</div>
                         @else
@@ -90,7 +90,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">9:00-10:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(4)->format('Y-m-d 10:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">9:00-10:00</div>
                         @else
@@ -110,7 +110,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">10:00-11:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(0)->format('Y-m-d 11:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">10:00-11:00</div>
                         @else
@@ -125,7 +125,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">10:00-11:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(1)->format('Y-m-d 11:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">10:00-11:00</div>
                         @else
@@ -140,7 +140,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">10:00-11:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(2)->format('Y-m-d 11:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">10:00-11:00</div>
                         @else
@@ -155,7 +155,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">10:00-11:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(3)->format('Y-m-d 11:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">10:00-11:00</div>
                         @else
@@ -171,7 +171,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">10:00-11:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(4)->format('Y-m-d 11:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">10:00-11:00</div>
                         @else
@@ -190,7 +190,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">11:00-12:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(0)->format('Y-m-d 12:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">11:00-12:00</div>
                         @else
@@ -206,7 +206,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">11:00-12:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(1)->format('Y-m-d 12:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">11:00-12:00</div>
                         @else
@@ -221,7 +221,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">11:00-12:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(2)->format('Y-m-d 12:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">11:00-12:00</div>
                         @else
@@ -236,7 +236,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">11:00-12:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(3)->format('Y-m-d 12:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">11:00-12:00</div>
                         @else
@@ -251,7 +251,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">11:00-12:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(4)->format('Y-m-d 12:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">11:00-12:00</div>
                         @else
@@ -271,7 +271,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">12:00-01:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(0)->format('Y-m-d 13:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">12:00-01:00</div>
                         @else
@@ -286,7 +286,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">12:00-01:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(1)->format('Y-m-d 13:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">12:00-01:00</div>
                         @else
@@ -301,7 +301,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">12:00-01:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(2)->format('Y-m-d 13:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">12:00-01:00</div>
                         @else
@@ -316,7 +316,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">12:00-01:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(3)->format('Y-m-d 13:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">12:00-01:00</div>
                         @else
@@ -331,7 +331,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">12:00-01:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(4)->format('Y-m-d 13:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">12:00-01:00</div>
                         @else
@@ -351,7 +351,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">01:00-02:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(0)->format('Y-m-d 14:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">01:00-02:00</div>
                         @else
@@ -366,7 +366,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">01:00-02:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(1)->format('Y-m-d 14:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">01:00-02:00</div>
                         @else
@@ -381,7 +381,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">01:00-02:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(2)->format('Y-m-d 14:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">01:00-02:00</div>
                         @else
@@ -396,7 +396,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">01:00-02:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(3)->format('Y-m-d 14:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">01:00-02:00</div>
                         @else
@@ -411,7 +411,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">01:00-02:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(4)->format('Y-m-d 14:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">01:00-02:00</div>
                         @else
@@ -430,7 +430,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">02:00-03:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(0)->format('Y-m-d 15:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">02:00-03:00</div>
                         @else
@@ -445,7 +445,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">02:00-03:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(1)->format('Y-m-d 15:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">02:00-03:00</div>
                         @else
@@ -460,7 +460,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">02:00-03:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(2)->format('Y-m-d 15:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">02:00-03:00</div>
                         @else
@@ -475,7 +475,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">02:00-03:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(3)->format('Y-m-d 15:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">02:00-03:00</div>
                         @else
@@ -490,7 +490,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">02:00-03:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(4)->format('Y-m-d 15:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">02:00-03:00</div>
                         @else
@@ -509,7 +509,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">03:00-04:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(0)->format('Y-m-d 16:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">03:00-04:00</div>
                         @else
@@ -524,7 +524,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">03:00-04:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(1)->format('Y-m-d 16:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">03:00-04:00</div>
                         @else
@@ -539,7 +539,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">03:00-04:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(2)->format('Y-m-d 16:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">03:00-04:00</div>
                         @else
@@ -554,7 +554,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">03:00-04:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(3)->format('Y-m-d 16:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">03:00-04:00</div>
                         @else
@@ -569,7 +569,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">03:00-04:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(4)->format('Y-m-d 16:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">03:00-04:00</div>
                         @else
@@ -588,7 +588,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">04:00-05:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(0)->format('Y-m-d 17:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">04:00-05:00</div>
                         @else
@@ -603,7 +603,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">04:00-05:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(1)->format('Y-m-d 17:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">04:00-05:00</div>
                         @else
@@ -618,7 +618,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">04:00-05:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(2)->format('Y-m-d 17:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">04:00-05:00</div>
                         @else
@@ -633,7 +633,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">04:00-05:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(3)->format('Y-m-d 17:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">04:00-05:00</div>
                         @else
@@ -648,7 +648,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">04:00-05:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(4)->format('Y-m-d 17:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">04:00-05:00</div>
                         @else
@@ -667,7 +667,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">05:00-06:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(0)->format('Y-m-d 18:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">05:00-06:00</div>
                         @else
@@ -683,7 +683,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">05:00-06:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(1)->format('Y-m-d 18:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">05:00-06:00</div>
                         @else
@@ -698,7 +698,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">05:00-06:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(2)->format('Y-m-d 18:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">05:00-06:00</div>
                         @else
@@ -713,7 +713,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">05:00-06:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(3)->format('Y-m-d 18:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">05:00-06:00</div>
                         @else
@@ -728,7 +728,7 @@
                          
                             <button class="btn btn-danger disabled">Booked</button>
                             <div class="margin-10px-top font-size14">05:00-06:00</div>
-                        @elseif(\Carbon\Carbon::now()->floorHour(1)->isPast())
+                        @elseif(\Carbon\Carbon::parse(\Carbon\Carbon::now()->startOfWeek()->addWeekday(4)->format('Y-m-d 18:00:00'))->isPast())
                             <button class="btn btn-success disabled">Book</button>
                             <div class="margin-10px-top font-size14">05:00-06:00</div>
                         @else
