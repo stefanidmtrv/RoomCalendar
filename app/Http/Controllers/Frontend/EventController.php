@@ -1,10 +1,11 @@
 <?php
-
+require 'vendor/autoload.php';
 namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Http\Controllers\Controller;
+use App\Mail\NotificationEmail;
 use App\View\Components\Timetable;
 use Facade\FlareClient\Time\Time;
 use Illuminate\Support\Facades\Auth;
@@ -45,7 +46,7 @@ class EventController extends Controller
     {
 
         $validatedData = $request->validate([
-            // 'room_id' => 'required|integer',
+            //'room_id' => 'required|integer',
             'user_number' => 'nullable|max:10',
             'name' => 'required|max:255',
             'description' => 'required|max:1000',
@@ -54,14 +55,26 @@ class EventController extends Controller
         ]);
 
         $event = Event::create([
-            'room_id' => $request->room_id,
-            'user_id' => $request->user_number,
+            'room_id' => $request->roomid,
+            'user_number' => $request->user_number,
             'name' => $request->name,
             'description' => $request->description,
-            'isBooked' => true,
             'start_date_time' => $request->start_date_time,
             'end_date_time' => $request->end_date_time
         ]);
+
+       // $data = ['message' => 'This is a test!'];
+        
+        //$email = $event->user_number . "@swansea.ac.uk";
+        $email = new \SendGrid\Mail\Mail(); 
+        $email->setFrom("test@example.com", "Example User");
+        $email->setSubject("Sending with SendGrid is Fun");
+        $email->addTo("test@example.com", "Example User");
+        $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
+        $email->addContent(
+            "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
+        );
+        //Mail::to($email)->send(new NotificationEmail($data));
 
         return redirect()->route('availability', ['room' => $event->room_id]);
     }

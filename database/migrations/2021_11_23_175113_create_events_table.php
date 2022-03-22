@@ -21,7 +21,6 @@ class CreateEventsTable extends Migration
             $table->longText('description');
             $table->dateTime('start_date_time');
             $table->dateTime('end_date_time');
-            $table->boolean('isBooked')->nullable();
             $table->timestamps();
 
             $table->foreign('room_id')->references('id')->

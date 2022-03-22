@@ -22,7 +22,7 @@
                             <th scope="col">@lang('Description')</th>
                             <th scope="col">@lang('Start date time')</th>
                             <th scope="col">@lang('End date time')</th>
-
+                            
                         </tr>
                         </thead>
                         <tbody>
