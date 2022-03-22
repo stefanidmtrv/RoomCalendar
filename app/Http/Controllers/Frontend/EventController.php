@@ -1,41 +1,49 @@
 <?php
-require 'vendor/autoload.php';
+
 namespace App\Http\Controllers\Frontend;
+// require 'vendor/autoload.php';
+
 
 use Illuminate\Http\Request;
+use App\Models\Room;
 use App\Models\Event;
 use App\Http\Controllers\Controller;
 use App\Mail\NotificationEmail;
 use App\View\Components\Timetable;
 use Facade\FlareClient\Time\Time;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+
 
 
 class EventController extends Controller
 {
-    public $booked = false;
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    public static function isBooked(int $room, String $date)
     {
-        //
+        if (Event::where('room_id', $room)->where('start_date_time', $date)->exists() || 
+            (Carbon::parse($date)->isPast()) || !(Carbon::parse($date)->isCurrentWeek())) {
+            return true;
+        }
+        return false;
+        
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create($slot1, $slot2, $date, $roomid)
 
-    {   
-        return view('events.create', ['slot1' => $slot1, 'slot2' => $slot2, 'date' => $date, 'roomid' => $roomid]);
+    {
+        $new_date = $date . " " . $slot1;
+        
+        if(EventController::isBooked($roomid, $new_date)){
+            abort(403);
+            
+        }else{
+            return view('events.create', ['slot1' => $slot1, 'slot2' => $slot2, 'date' => $date, 'roomid' => $roomid]);
+        }
+        
     }
 
-   
+
     /**
      * Store a newly created resource in storage.
      *
@@ -63,22 +71,23 @@ class EventController extends Controller
             'end_date_time' => $request->end_date_time
         ]);
 
-       // $data = ['message' => 'This is a test!'];
-        
+        // $data = ['message' => 'This is a test!'];
+
         //$email = $event->user_number . "@swansea.ac.uk";
-        $email = new \SendGrid\Mail\Mail(); 
+        $email = new \SendGrid\Mail\Mail();
         $email->setFrom("test@example.com", "Example User");
         $email->setSubject("Sending with SendGrid is Fun");
         $email->addTo("test@example.com", "Example User");
         $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
         $email->addContent(
-            "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
+            "text/html",
+            "<strong>and easy to do anywhere, even with PHP</strong>"
         );
         //Mail::to($email)->send(new NotificationEmail($data));
 
         return redirect()->route('availability', ['room' => $event->room_id]);
     }
-    
+
     /**
      * Display the specified resource.
      *
@@ -88,7 +97,6 @@ class EventController extends Controller
     public function show(Event $event)
     {
         return view('events.show', ['event' => $event]);
-
     }
 
     /**
@@ -124,7 +132,6 @@ class EventController extends Controller
     {
         $event->delete();
 
-         return redirect()->route('rooms.show', ['room' => $event->room_id])->with('message', 'Event was deleted.');
-
+        return redirect()->route('rooms.show', ['room' => $event->room_id])->with('message', 'Event was deleted.');
     }
 }
