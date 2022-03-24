@@ -31,7 +31,7 @@
             <hr>
 
 
-            <x-timetable>
+             <x-timetable>
                 <x-slot name="room">{{ $room->id}}</x-slot>
                 <x-slot name="monday">{{ $monday }}</x-slot>
                 <x-slot name="tuesday">{{ $tuesday }}</x-slot>
@@ -41,6 +41,9 @@
             </x-timetable>
             
         </div>
+        
+           
+        
          
 
     </x-slot>

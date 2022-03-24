@@ -51,6 +51,7 @@ class FrontController extends Controller
                 'thursday' => $thursday,
                 'friday' => $friday
             ]);
+
         } else {
             return view('frontend.rooms.pin');
         }

@@ -1,4 +1,3 @@
-<div class="container">
 
     <div class="table-responsive">
 
@@ -745,5 +744,5 @@
             
         </table>
     </div>
-</div>
-<style>
+
+
