@@ -15,7 +15,6 @@
                 <x-slot name="num_projectors">{{ $room->number_of_projectors }}</x-slot>
                 <x-slot name="floor">{{ $room->floor_id }}</x-slot>
             </x-room-info>
-
             <hr>
 
             <p style="text-align:right;">
@@ -50,6 +49,7 @@
 
             <a class="btn btn-success btn-lg" href="{{ route('events.create',
             ['slot1'=> $lastHourNoDate, 'slot2' => $nextHourNoDate, 'date' => $currentDate, 'roomid' => $room->id]) }}">Book now</a>
+            
                 @if(\App\Models\Event::where('room_id', $room->id)->where('start_date_time',
                 \Carbon\Carbon::now()->ceilHour(1)->format('Y-m-d H:i:s'))->exists())
                 
@@ -64,8 +64,9 @@
 
             <br>
             <br>
-            <a class="btn btn-outline-secondary" href="{{ route('rooms.show', ['room' => $room->id]) }}">Timetable</a>
-
+            <a class="btn btn-outline-secondary" href="{{ route('rooms.show', 
+            ['room' => $room->id]) }}">Timetable</a>
+        </div>
 
     </x-slot>
 </x-layouts.app>

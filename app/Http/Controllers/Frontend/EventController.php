@@ -22,7 +22,7 @@ class EventController extends Controller
     public static function isBooked(int $room, String $date)
     {
         if (Event::where('room_id', $room)->where('start_date_time', $date)->exists() || 
-            (Carbon::parse($date)->isPast()) || !(Carbon::parse($date)->isCurrentWeek())) {
+            (Carbon::parse($date)->addHour(1)->isPast()) || !(Carbon::parse($date)->isCurrentWeek())) {
             return true;
         }
         return false;
@@ -33,6 +33,7 @@ class EventController extends Controller
 
     {
         $new_date = $date . " " . $slot1;
+        
         
         if(EventController::isBooked($roomid, $new_date)){
             abort(403);

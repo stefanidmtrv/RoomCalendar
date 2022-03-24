@@ -15,7 +15,7 @@
         <div class="modal-body">
           <h5 class="table-capacity" id="exampleModalLabel">Table capacity: {{$table_capacity}}</h5>
           <h5 class="computer-capacity" id="exampleModalLabel">Computer capacity: {{$computer_capacity}}</h5>
-          <h5 class="num_projectors" id="exampleModalLabel">Table capacity: {{$num_projectors}}</h5>
+          <h5 class="num_projectors" id="exampleModalLabel">Number of projectors: {{$num_projectors}}</h5>
           <h5 class="floor" id="exampleModalLabel">Floor: {{$floor}}</h5>
         </div>
 

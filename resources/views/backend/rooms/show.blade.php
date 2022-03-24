@@ -62,6 +62,7 @@
     </div>
 </div><a class="btn btn-sm btn--primary box--shadow1 text--small" href="{{ route('admin.room.create') }}"><i
             class="fa fa-fw fa-plus"></i>@lang('Add New')</a>
+            
 </x-slot>
 </x-layouts.app>
 
