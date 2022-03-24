@@ -8,14 +8,13 @@
 
     <title>Calendar</title>
   </head>
-  <body>
-      {{-- <div class='container my-3'> --}}
-      {{-- <div class='container my-3'> --}}
+
+  <body class= "bg-pink">
+
        <x-navigation>
 
      </x-navigation> 
-     
-     {{-- @include('backend.components.sidenav') --}}
+
 
      
       @if (session('message'))

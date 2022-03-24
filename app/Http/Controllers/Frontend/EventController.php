@@ -13,7 +13,8 @@ use App\View\Components\Timetable;
 use Facade\FlareClient\Time\Time;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
-
+use App\Mail\RoomBooked;
+use Mail;
 
 
 class EventController extends Controller
@@ -36,7 +37,7 @@ class EventController extends Controller
         
         
         if(EventController::isBooked($roomid, $new_date)){
-            abort(403);
+            abort(400);
             
         }else{
             return view('events.create', ['slot1' => $slot1, 'slot2' => $slot2, 'date' => $date, 'roomid' => $roomid]);
@@ -72,19 +73,12 @@ class EventController extends Controller
             'end_date_time' => $request->end_date_time
         ]);
 
+
         // $data = ['message' => 'This is a test!'];
 
         //$email = $event->user_number . "@swansea.ac.uk";
-        $email = new \SendGrid\Mail\Mail();
-        $email->setFrom("test@example.com", "Example User");
-        $email->setSubject("Sending with SendGrid is Fun");
-        $email->addTo("test@example.com", "Example User");
-        $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
-        $email->addContent(
-            "text/html",
-            "<strong>and easy to do anywhere, even with PHP</strong>"
-        );
-        //Mail::to($email)->send(new NotificationEmail($data));
+        Mail::to('1909435@swansea.ac.uk')
+            ->send(new RoomBooked('1909435', 2));
 
         return redirect()->route('availability', ['room' => $event->room_id]);
     }

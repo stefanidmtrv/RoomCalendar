@@ -10,7 +10,6 @@ use App\Http\Controllers\Frontend\EventController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Frontend\FrontController;
 use App\Http\Controllers\Backend\BackEventController;
-
 use App\Models\Room;
 
 require __DIR__ . '/auth.php';
@@ -65,8 +64,11 @@ Route::namespace('Frontend')->group(function () {
 
     //old
     Route::get('/', [FrontController::class, 'rooms'])->name('home');
-    //Route::get('/availability/{room}', [RoomController::class, 'showAvailability'])->name('availability');
 
+    Route::get('/test', function(){
+        
+        return "ok";
+    });
     // Route::get('/displays/create', [DisplayController::class, 'create'])->name('displays.create');
     // Route::get('admin/rooms', [RoomController::class, 'index'])->name('rooms.index')->middleware('role:admin');
     // Route::delete('rooms/{room}', [RoomController::class, 'destroy'])->name('rooms.destroy')->middleware('role:admin');

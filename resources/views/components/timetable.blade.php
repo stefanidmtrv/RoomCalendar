@@ -1,6 +1,11 @@
 
     <div class="table-responsive">
+{{-- users initially
+404 layout
 
+throttling 
+mailtrap
+--}}
         <table class="table table-bordered text-center">
             <thead>
                 <tr class="bg-light-gray">
