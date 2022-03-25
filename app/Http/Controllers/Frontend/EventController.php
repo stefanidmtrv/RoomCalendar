@@ -46,12 +46,6 @@ class EventController extends Controller
     }
 
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
 
@@ -64,22 +58,24 @@ class EventController extends Controller
             'end_date_time' => 'required'
         ]);
 
+        //$request->validate($validatedData);
+
         $event = Event::create([
             'room_id' => $request->roomid,
-            'user_number' => $request->user_number,
-            'name' => $request->name,
-            'description' => $request->description,
-            'start_date_time' => $request->start_date_time,
-            'end_date_time' => $request->end_date_time
+            'user_number' => $validatedData['user_number'],
+            'name' => $validatedData['name'],
+            'description' => $validatedData['description'],
+            'start_date_time' => $validatedData['start_date_time'],
+            'end_date_time' => $validatedData['end_date_time']
         ]);
 
+        if($event->user_number != null) {
+           $email = $event->user_number . "@swansea.ac.uk";
 
-        // $data = ['message' => 'This is a test!'];
-
-        //$email = $event->user_number . "@swansea.ac.uk";
-        Mail::to('1909435@swansea.ac.uk')
-            ->send(new RoomBooked('1909435', 2));
-
+        Mail::to($email)
+            ->send(new RoomBooked($event->user_number, $event->room_id));
+        }
+        
         return redirect()->route('availability', ['room' => $event->room_id]);
     }
 

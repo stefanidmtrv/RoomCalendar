@@ -40,7 +40,7 @@
                     </div>
 
                     <div class="form-group mb-4">
-                        <p>Student/Staff number: </p>
+                        <p>Student/Staff number (optional): </p>
                         <input type="text" name="user_number" value="{{ old('user_number') }}" class="form-control">
                         
                     </div>
