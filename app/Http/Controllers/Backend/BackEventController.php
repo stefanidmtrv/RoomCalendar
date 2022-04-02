@@ -15,6 +15,7 @@ use App\Models\Event;
 
 class BackEventController extends Controller
 {
+
     public function show()
     {
 
@@ -68,8 +69,6 @@ class BackEventController extends Controller
 
         $event->delete();
 
-        $notify[] = ['success', 'Event has been deleted.'];
-
-        return back()->withNotify($notify);
+        return back()->with('message', 'Event was deleted');
     }
 }

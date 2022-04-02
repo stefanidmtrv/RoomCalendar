@@ -1,16 +1,17 @@
 @component('mail::message')
-# Room Booked    
+# Room Booked
 Dear {{$studentNum}},
 
-You booked room {{$roomNum}}.
+You booked room {{$roomNum}} on {{$date}} from {{$start_time}} until {{$end_time}}.
 
 Thank you,
+
 Swansea Uni
 
-@component('mail::button', ['url' => 'google.com'])
-Google
-@endcomponent
-
-
+@emailCancellation
+<a href="{{ route('user.event.delete', $event_id) }}">
+Cancel event
+</a>
+@endemailCancellation
 
 @endcomponent

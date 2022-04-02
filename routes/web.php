@@ -54,21 +54,23 @@ Route::namespace('Backend')->prefix('admin')->name('admin.')->group(function () 
 
 //frontend
 Route::namespace('Frontend')->group(function () {
-
+    Route::get('/', [FrontController::class, 'rooms'])->name('home');
     Route::get('rooms', [FrontController::class, 'rooms'])->name('rooms');
     Route::get('/availability/{room}', [FrontController::class, 'showAvailability'])->name('availability');
     Route::get('/rooms/{room}', [FrontController::class, 'show'])->name('rooms.show');
     Route::get('/rooms/pin', [FrontController::class, 'pinInit'])->name('rooms.pin');
     Route::post('/rooms/pin', [FrontController::class, 'pinCheck'])->name('rooms.pin');
     Route::post('/rooms/pin-store', [FrontController::class, 'pinStore'])->name('pin.store');
+    
+    Route::get('user/event/delete/{id}', [BackEventController::class, 'delete'])->name('user.event.delete')->middleware('emailCancellation');
 
-    //old
-    Route::get('/', [FrontController::class, 'rooms'])->name('home');
 
-    Route::get('/test', function(){
+    
+
+    // Route::get('/test', function(){
         
-        return "ok";
-    });
+    //     return "ok";
+    // });
     // Route::get('/displays/create', [DisplayController::class, 'create'])->name('displays.create');
     // Route::get('admin/rooms', [RoomController::class, 'index'])->name('rooms.index')->middleware('role:admin');
     // Route::delete('rooms/{room}', [RoomController::class, 'destroy'])->name('rooms.destroy')->middleware('role:admin');

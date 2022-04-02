@@ -6,6 +6,9 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use App\Models\Event;
+use Carbon\Carbon;
+
 
 class RoomBooked extends Mailable implements ShouldQueue
 {
@@ -13,15 +16,24 @@ class RoomBooked extends Mailable implements ShouldQueue
 
     public $studentNum;
     public $roomNum;
+    public $start_time;
+    public $end_time;
+    public $date;
+    public $event_id;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(string $studentNum, int $roomNum)
+    public function __construct(Event $event)
     {
-        $this->studentNum = $studentNum;
-        $this->roomNum = $roomNum;
+        $this->event_id = $event->id;
+        $this->studentNum = $event->user_number;
+        $this->roomNum = $event->room_id;
+        $this->date = Carbon::parse($event->start_date_time)->format('Y-m-d');
+        $this->start_time = Carbon::parse($event->start_date_time)->format('H:i');
+        $this->end_time = Carbon::parse($event->end_date_time)->format('H:i');
     }
 
     /**

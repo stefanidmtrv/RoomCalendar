@@ -58,8 +58,6 @@ class EventController extends Controller
             'end_date_time' => 'required'
         ]);
 
-        //$request->validate($validatedData);
-
         $event = Event::create([
             'room_id' => $request->roomid,
             'user_number' => $validatedData['user_number'],
@@ -72,8 +70,12 @@ class EventController extends Controller
         if($event->user_number != null) {
            $email = $event->user_number . "@swansea.ac.uk";
 
+           $date = Carbon::parse($event->start_date_time)->format('Y-m-d');
+           $start_time = Carbon::parse($event->start_date_time)->format('H:i');
+           $end_time = Carbon::parse($event->end_date_time)->format('H:i');
+
         Mail::to($email)
-            ->send(new RoomBooked($event->user_number, $event->room_id));
+            ->send(new RoomBooked($event));
         }
         
         return redirect()->route('availability', ['room' => $event->room_id]);
@@ -119,10 +121,10 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Event $event)
-    {
-        $event->delete();
+    // public function destroy(Event $event)
+    // {
+    //     $event->delete();
 
-        return redirect()->route('rooms.show', ['room' => $event->room_id])->with('message', 'Event was deleted.');
-    }
+    //     return redirect()->route('rooms.show', ['room' => $event->room_id])->with('message', 'Event was deleted.');
+    // }
 }
