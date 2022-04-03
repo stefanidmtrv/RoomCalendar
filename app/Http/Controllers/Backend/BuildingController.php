@@ -37,11 +37,11 @@ class BuildingController extends Controller
     {
 
         $validation_rule = [
-            'name' => 'required',
+            'name' => 'required|max:255',
             'opening_time' => 'required',
             'closing_time' => 'required',
-            'latitude' => 'required',
-            'longitude' => 'required'
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric'
         ];
 
         $request->validate($validation_rule);

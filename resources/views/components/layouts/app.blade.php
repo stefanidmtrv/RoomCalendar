@@ -16,16 +16,7 @@
 
     </x-navigation>
 
-    {{-- @if ($errors->any())
-      <div>
-          Messages:
-          <ul>
-              @foreach ($errors->all() as $error)
-              <li>{{$error}}</li>
-              @endforeach
-          </ul>
-      </div>
-      @endif --}}
+
 
     <header class="bg-white shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
@@ -37,16 +28,28 @@
 
     </header>
     <div class="container">
-    <div>
-        @if (session('message'))
-            <p><b>{{ session('message') }}</b></p>
-        @endif
-        {{ $slot }}
+        
+            @if (session('message'))
+            <div class="alert alert-success">
+                <ul>{{ session('message') }}</ul>
+            </div>
+            @endif
+        
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            {{ $slot }}
+
+        </div>
+        <script src="{{ asset('js/app.js') }}"></script>
 
     </div>
-    <script src="{{ asset('js/app.js') }}"></script>
-
-</div>
 </body>
 
 </html>

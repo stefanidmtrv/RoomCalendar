@@ -2,7 +2,7 @@
     <x-slot name="title">
             Register
         </x-slot>
-    <x-auth-card>
+    <x-create-card>
         
         
 
@@ -55,5 +55,5 @@
                 </x-button>
             </div>
         </form>
-    </x-auth-card>
+    </x-create-card>
 </x-layouts.app>

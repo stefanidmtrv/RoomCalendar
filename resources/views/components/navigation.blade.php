@@ -12,13 +12,14 @@
                 </li>
 
 
+                
+            </ul>
+            <ul class="navbar-nav ml-auto">
                 @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">Login</a>
                     </li>
                 @endguest
-            </ul>
-            <ul class="navbar-nav ml-auto">
                 @auth
 
                     @if (auth()->user()->hasRole('admin'))

@@ -7,24 +7,29 @@
 
     <x-slot name="slot">
 
-        <div class="container">
-            <form action="{{ route('admin.building.store') }}" method="POST" enctype="multipart/form-data">
-                <div class="mb-3">
-                    @csrf
-
+        <a class="btn btn-outline-secondary" href="{{ route('admin.dashboard') }}">Go back</a>
+        
+        <x-create-card>
+            <div class="container">
+                
+                <form action="{{ route('admin.building.store') }}" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label class="form-label">Name <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control " placeholder="Name" name="name"
-                            value="{{ old('name') }}" />
+                        @csrf
+
+                        <div class="mb-3">
+                            <label class="form-label">Name <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control " placeholder="Name" name="name"
+                                value="{{ old('name') }}" />
+                        </div>
                         <div class="mb-3">
                             <label class="form-label">Opening Time<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control " placeholder="Opening Time" name="opening_time"
-                                value="{{ old('opening_time') }}" />
+                            <input type="time" step="1" class="form-control " placeholder="Opening Time"
+                                name="opening_time" value="{{ old('opening_time') }}" />
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Closing Time<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control " placeholder="Closing Time" name="closing_time"
-                                value="{{ old('closing_time') }}" />
+                            <input type="time" step="1" class="form-control " placeholder="Closing Time"
+                                name="closing_time" value="{{ old('closing_time') }}" />
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Latitude<span class="text-danger">*</span></label>
@@ -40,11 +45,11 @@
                             <button type="submit" class="btn btn-secondary">Submit</button>
                         </center>
                     </div>
-            </form>
+                </form>
 
-        </div>
+            </div>
 
-
+        </x-create-card>
     </x-slot>
 
 </x-layouts.app>

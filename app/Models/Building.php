@@ -10,6 +10,7 @@ class Building extends Model
     use HasFactory;
     protected $table = "buildings";
     protected $guarded = ['id'];  
+    
     public function floors()
     {
         return $this->hasMany('App\Models\Floor');
