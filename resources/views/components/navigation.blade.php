@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #424747;">
-        <div class="container-fluid">
+    <div class="container-fluid">
         <a class="navbar-brand" href="#">Calendar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,9 +10,8 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
                 </li>
-            
-        
-            
+
+
                 @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">Login</a>
@@ -21,7 +20,7 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 @auth
-                    
+
                     @if (auth()->user()->hasRole('admin'))
                         <li class="nav-item">
 
@@ -35,13 +34,13 @@
                         @csrf
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
-                this.closest('form').submit();">Logout</a>
+                    this.closest('form').submit();">Logout</a>
                         </li>
 
                     </form>
                 @endauth
-                </ul>
+            </ul>
         </div>
-        
+
     </div>
 </nav>

@@ -48,12 +48,13 @@ class BuildingController extends Controller
 
         $building = Building::create([
             'name' => $request->name,
-            'opening_time' => $request->opening_time, 'closing_time' => $request->closing_time,
-            'latitude' => $request->latitude, 'longitude' => $request->longitude
+            'opening_time' => $request->opening_time,
+             'closing_time' => $request->closing_time,
+            'latitude' => $request->latitude,
+             'longitude' => $request->longitude
         ]);
 
-        $notify[] = ['success', 'Building has been added.'];
-        return redirect()->route('admin.building')->withNotify($notify);
+        return redirect()->route('admin.building')->with('message', 'A building has been created');
     }
 
     public function delete($building)
