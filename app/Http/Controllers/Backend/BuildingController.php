@@ -19,8 +19,8 @@ class BuildingController extends Controller
     {
 
         $page_title = 'Building Management';
-        $empty_message = 'Not found';
-        $buildings = Building::latest()->paginate(20);
+        $empty_message = 'No records found';
+        $buildings = Building::orderBy('id', 'ASC')->get();
 
         return view('backend.buildings.show', compact('page_title', 'empty_message', 'buildings'));
     }
