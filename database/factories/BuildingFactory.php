@@ -23,8 +23,8 @@ class BuildingFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'opening_time' => $this->faker->dateTime(),
-            'closing_time' => $this->faker->dateTime(),
+            'opening_time' => $this->faker->time(),
+            'closing_time' => $this->faker->time(),
             'latitude' => $this->faker->latitude($min = -90, $max = 90),
             'longitude' => $this->faker->longitude($min = -90, $max = 90)
         ];

@@ -16,8 +16,8 @@ class CreateBuildingsTable extends Migration
         Schema::create('buildings', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->dateTime('opening_time');
-            $table->dateTime('closing_time');
+            $table->time('opening_time');
+            $table->time('closing_time');
             $table->float('latitude');
             $table->float('longitude');
             $table->timestamps();

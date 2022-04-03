@@ -16,8 +16,8 @@ class BuildingSeeder extends Seeder
     {
         $b = new Building;
         $b->name = 'Building 1';
-        $b->opening_time ='2008-04-25 08:37:17';
-        $b->closing_time = '2008-04-25 08:37:17';
+        $b->opening_time ='08:37:17';
+        $b->closing_time = '08:37:17';
         $b->latitude = 2.453;
         $b->longitude = 2.453;
         $b->save();
