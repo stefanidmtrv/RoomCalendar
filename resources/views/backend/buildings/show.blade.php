@@ -22,7 +22,8 @@
                             <th scope="col">Closing Time</th>
                             <th scope="col">Longitude</th>
                             <th scope="col">Latitude</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Delete</th>
+                            <th scope="col">Edit</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,7 +38,12 @@
 
                                 <td>
                                     <a href="{{ route('admin.building.delete', $building->id) }}">
-                                        <i class="las la-user text--shadow"></i>Delete
+                                        Delete
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                        Edit
                                     </a>
                                 </td>
                             </tr>
@@ -57,6 +63,3 @@
     </x-slot>
 </x-layouts.app>
 
-{{-- @push('breadcrumb-plugins')
-    
-@endpush --}}

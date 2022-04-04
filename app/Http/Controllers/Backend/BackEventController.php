@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Event;
-
+use App\Models\Room;
 
 
 class BackEventController extends Controller
@@ -30,8 +30,9 @@ class BackEventController extends Controller
     {
 
         $page_title = 'Create new event';
+        $rooms = Room::orderBy('id', 'asc')->get();
 
-        return view('backend.events.create', compact('page_title'));
+        return view('backend.events.create', compact('page_title', 'rooms'));
     }
 
     public function store(Request $request)

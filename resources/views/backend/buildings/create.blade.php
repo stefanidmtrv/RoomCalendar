@@ -13,7 +13,6 @@
             <div class="container">
                 
                 <form action="{{ route('admin.building.store') }}" method="POST" enctype="multipart/form-data">
-                    <div class="mb-3">
                         @csrf
 
                         <div class="mb-3">
@@ -46,8 +45,6 @@
                         </center>
                     </div>
                 </form>
-
-            </div>
 
         </x-create-card>
     </x-slot>

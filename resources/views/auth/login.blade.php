@@ -2,7 +2,7 @@
     <x-slot name="title">
         Login
     </x-slot>
-    <x-auth-card>
+    <x-create-card>
         
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -50,5 +50,5 @@
                 </x-button>
             </div>
         </form>
-    </x-auth-card>
+    </x-create-card>
 </x-layouts.app>
