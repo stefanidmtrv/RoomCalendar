@@ -7,7 +7,7 @@
 
     <x-slot name="slot">
 
-        <a class="btn btn-outline-secondary" href="{{ route('admin.dashboard') }}">Go back</a>
+        <a class="btn btn-outline-secondary btn-sm" href="{{ route('admin.dashboard') }}">Go back</a>
 
         <x-create-card>
             <div class="container">
@@ -29,7 +29,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">Student/Staff number<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" placeholder="Student/Staff number" name="user_number"
+                        <input type="number" class="form-control" placeholder="Student/Staff number" name="user_number"
                             value="{{ old('user_number') }}" />
                     </div>
 

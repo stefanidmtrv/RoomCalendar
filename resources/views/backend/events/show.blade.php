@@ -8,7 +8,7 @@
     <x-slot name="slot">
 
         <div class="container">
-            <a class="btn btn-outline-secondary" href="{{ route('admin.dashboard') }}">Go back</a>
+            <a class="btn btn-outline-secondary btn-sm" href="{{ route('admin.dashboard') }}">Go back</a>
 
             <a class="btn btn-secondary btn-sm" href="{{ route('admin.event.create') }}">Add New</a>
             <div class="table-responsive--sm  table-responsive">
