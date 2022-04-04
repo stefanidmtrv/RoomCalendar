@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers\Backend;
 
-
 use App\Http\Controllers\Controller;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
+use App\Models\Building;
 use App\Models\Room;
 
 
@@ -20,7 +16,7 @@ class RoomsController extends Controller
 
         $page_title = 'Room Management';
         $empty_message = 'Not found';
-        $rooms = Room::latest()->paginate(20);
+        $rooms = Room::orderBy('id', 'ASC')->get();
 
         return view('backend.rooms.show', compact('page_title', 'empty_message', 'rooms'));
     }
@@ -29,8 +25,8 @@ class RoomsController extends Controller
     {
 
         $page_title = 'Create new floor';
-
-        return view('backend.rooms.create', compact('page_title'));
+        $buildings = Building::orderBy('id', 'asc')->get();
+        return view('backend.rooms.create', compact('page_title', 'buildings'));
     }
 
     public function store(Request $request)
@@ -38,9 +34,9 @@ class RoomsController extends Controller
 
         $validation_rule = [
             'floor_id' => 'required',
-            'table_capacity' => 'required',
-            'computer_capacity' => 'required',
-            'number_of_projectors' => 'required'
+            'table_capacity' => 'required|numeric',
+            'computer_capacity' => 'required|numeric',
+            'number_of_projectors' => 'required|numeric'
         ];
 
         $request->validate($validation_rule);
