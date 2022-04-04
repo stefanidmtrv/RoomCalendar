@@ -64,8 +64,6 @@ class BuildingController extends Controller
 
         $building->delete();
 
-        $notify[] = ['success', 'Building has been deleted.'];
-
-        return back()->withNotify($notify);
+        return back()->with('message', 'A building has been deleted');
     }
 }

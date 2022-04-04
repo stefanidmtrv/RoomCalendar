@@ -7,29 +7,36 @@
 
     <x-slot name="slot">
 
-<div class="row">
-    <div class="col-lg-12">
-        <div class="card b-radius--10 ">
-            <div class="card-body p-0">
-                <div class="table-responsive--sm  table-responsive">
-                    <table class="table table--light style--two">
+        <div class="container">
+            <a class="btn btn-outline-secondary" href="{{ route('admin.dashboard') }}">Go back</a>
+
+            <a class="btn btn-secondary btn-sm" href="{{ route('admin.floor.create') }}">Add New</a>
+            <div class="table-responsive--sm  table-responsive">
+                <table class="table table-striped table-bordered ">
                         <thead>
                         <tr>
-                            <th scope="col">@lang('ID')</th>
-                            <th scope="col">@lang('Building')</th>
-                            <th scope="col">@lang('Number')</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Building</th>
+                            <th scope="col">Number</th>
+                            <th scope="col">Delete</th>
+                            <th scope="col">Edit</th>
                         </tr>
                         </thead>
                         <tbody>
                             @forelse($floors as $floor)
                             <tr>
-                                <td data-label="@lang('ID')">{{ $floor->id }}</td>
-                                <td data-label="@lang('Building')">{{ $floor->building->name }}</td>
-                                <td data-label="@lang('Opening Time')">{{ $floor->number }}</td>
+                                <td>{{ $floor->id }}</td>
+                                <td>{{ $floor->building->name }}</td>
+                                <td>{{ $floor->number }}</td>
 
-                                <td data-label="@lang('Action')">
-                                    <a href="{{ route('admin.floor.delete', $floor->id) }}" class="icon-btn" data-toggle="tooltip" title="" data-original-title="Delete">
-                                        <i class="las la-user text--shadow"></i>Delete
+                                <td>
+                                    <a href="{{ route('admin.floor.delete', $floor->id) }}">
+                                        Delete
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                        Edit
                                     </a>
                                 </td>
                             </tr>
@@ -42,18 +49,6 @@
                     </table>
                 </div>
             </div>
-            {{-- <div class="card-footer py-4">
-                {{ $floors->links('backend.partials.paginate') }}
-            </div> --}}
-        </div>
-    </div>
-</div>
-<a class="btn btn-sm btn--primary box--shadow1 text--small" href="{{ route('admin.floor.create') }}"><i
-            class="fa fa-fw fa-plus"></i>@lang('Add New')</a>
+            
 </x-slot>
 </x-layouts.app>
-
-{{-- 
-@push('breadcrumb-plugins')
-    
-@endpush --}}

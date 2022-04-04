@@ -1,57 +1,44 @@
 <x-layouts.app>
 
     <x-slot name="title">
-        {{$page_title}}
+        {{ $page_title }}
     </x-slot>
 
 
     <x-slot name="slot">
 
-    <div class="row">
+        <a class="btn btn-outline-secondary" href="{{ route('admin.dashboard') }}">Go back</a>
 
-        <div class="col-lg-12">
-            <div class="card">
+        <x-create-card>
+            <div class="container">
                 <form action="{{ route('admin.floor.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="card-body">
-                        <div class="payment-method-item">
-                            <div class="payment-method-header d-flex flex-wrap">
-                                <div class="content">
-                                    <div class="row mt-4 mb-none-15">
-                                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-15">
-                                            <div class="input-group">
-                                                <label class="w-100 font-weight-bold">@lang('Building') <span
-                                                        class="text-danger">*</span></label>
-                                                <select type="number" class="form-control "
-                                                    placeholder="@lang('Building ID')" name="building_id">
+                    <div class="mb-3">
 
-                                                    <option>Select...</option>
-                                                    @foreach ($buildings as $building)
-                                                        <option value="{{ $building->id }}">
-                                                            {{ $building->name }}
-                                                        </option>
-                                                        @endforeach
-                                                </select>
+                        <label class="form-label">Building<span class="text-danger">*</span></label>
+                        <select class="form-control" name="building_id">
 
-                                                
-
-                                                <label class="w-100 font-weight-bold">@lang('Number') <span
-                                                        class="text-danger">*</span></label>
-                                                <input type="number" class="form-control " placeholder="@lang('Number')"
-                                                    name="number" value="{{ old('number') }}" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            <option>Select...</option>
+                            @foreach ($buildings as $building)
+                                <option value="{{ $building->id }}">
+                                    {{ $building->name }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn--primary btn-block">@lang('Add New')</button>
+
+                    <div class="mb-3">
+                        <label class="w-100 font-weight-bold">@lang('Number') <span
+                                class="text-danger">*</span></label>
+                        <input type="number" class="form-control " placeholder="@lang('Number')" name="number"
+                            value="{{ old('number') }}" />
                     </div>
+                    <center>
+                        <button type="submit" class="btn btn-secondary">Submit</button>
+                    </center>
                 </form>
             </div>
-        </div>
-    </div>
-</x-slot>
+
+        </x-create-card>
+    </x-slot>
 </x-layouts.app>

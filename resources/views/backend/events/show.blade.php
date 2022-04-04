@@ -25,7 +25,6 @@
                             <th scope="col">Delete</th>
                             <th scope="col">Edit</th>
 
-
                         </tr>
                     </thead>
                     <tbody>

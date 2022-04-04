@@ -20,8 +20,8 @@ class BackEventController extends Controller
     {
 
         $page_title = 'Event Management';
-        $empty_message = 'Not found';
-        $events = Event::latest()->paginate(20);
+        $empty_message = 'No records found';
+        $events = Event::orderBy('id', 'ASC')->get();
 
         return view('backend.events.show', compact('page_title', 'empty_message', 'events'));
     }
@@ -59,8 +59,7 @@ class BackEventController extends Controller
             'end_date_time' => $request->end_date_time
         ]);
 
-        $notify[] = ['success', 'Event has been added.'];
-        return redirect()->route('admin.event')->withNotify($notify);
+        return redirect()->with('message', 'An event has been created');
     }
 
     public function delete($event)
@@ -70,6 +69,6 @@ class BackEventController extends Controller
 
         $event->delete();
 
-        return back()->with('message', 'Event was deleted');
+        return back()->with('message', 'An event was deleted');
     }
 }

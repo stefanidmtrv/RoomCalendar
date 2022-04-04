@@ -4,14 +4,9 @@ namespace App\Http\Controllers\Backend;
 
 
 use App\Http\Controllers\Controller;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use App\Models\Floor;
 use App\Models\Building;
-
 
 
 class FloorController extends Controller
@@ -20,8 +15,8 @@ class FloorController extends Controller
     {
 
         $page_title = 'Floor Management';
-        $empty_message = 'Not found';
-        $floors = Floor::latest()->paginate(20);
+        $empty_message = 'No records found';
+        $floors = Floor::orderBy('id', 'ASC')->get();
 
         return view('backend.floors.show', compact('page_title', 'empty_message', 'floors'));
     }
@@ -39,8 +34,8 @@ class FloorController extends Controller
     {
 
         $validation_rule = [
-            'building_id' => 'required',
-            'number' => 'required'
+            'building_id' => 'required|numeric',
+            'number' => 'required|numeric'
         ];
 
         $request->validate($validation_rule);
@@ -50,8 +45,7 @@ class FloorController extends Controller
             'number' => $request->number
         ]);
 
-        $notify[] = ['success', 'Floor has been added.'];
-        return redirect()->route('admin.floor')->withNotify($notify);
+        return redirect()->route('admin.floor')->with('message', 'A floor has been created');
     }
 
     public function delete($floor)
@@ -61,8 +55,6 @@ class FloorController extends Controller
 
         $floor->delete();
 
-        $notify[] = ['success', 'Floor has been deleted.'];
-
-        return back()->withNotify($notify);
+        return back()->with('message', 'A floor has been deleted');
     }
 }
