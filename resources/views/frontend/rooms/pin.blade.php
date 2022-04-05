@@ -12,11 +12,11 @@
                 @csrf
                 <div class="form-group mb-4">
                     <p><b>Student/Staff number: </b></p>
-                    <input type="text" name="stnum" class="form-control"></p>
+                    <input type="num" name="stnum" class="form-control"></p>
                 </div>
 
                 <div class="col-md-12 text-center">
-                    <button type="submit" class="btn btn-success" value="Submit">Submit</button>
+                    <button type="submit" class="btn btn-secondary" value="Submit">Submit</button>
                 </div>
             </form>
 

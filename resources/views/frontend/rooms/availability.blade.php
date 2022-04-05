@@ -13,7 +13,8 @@
                 <x-slot name="table_capacity">{{ $room->table_capacity }}</x-slot>
                 <x-slot name="computer_capacity">{{ $room->computer_capacity }}</x-slot>
                 <x-slot name="num_projectors">{{ $room->number_of_projectors }}</x-slot>
-                <x-slot name="floor">{{ $room->floor_id }}</x-slot>
+                <x-slot name="floor">{{ $room->floor->number }}</x-slot>
+                <x-slot name="building">{{ $room->floor->building->name }}</x-slot>
             </x-room-info>
             <hr>
 

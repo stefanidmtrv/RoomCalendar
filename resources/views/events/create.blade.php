@@ -2,13 +2,13 @@
 
 
     <x-slot name="title">
-        Add an event
+        {{ $page_title }}
     </x-slot>
 
     <x-slot name="slot">
-        <div class="card">
+        <x-create-card>
+            <div class="container">
 
-            <div class="card-body">
                 <form method='POST' action="{{ route('events.store') }}">
                     @csrf
 
@@ -26,39 +26,37 @@
                         </p>
                     </div>
 
-                    <div class="form-group mb-4">
-                        <p>Add a title: </p>
-                        <input type="text" name="name" value="{{ old('name') }}" class="form-control"></p>
+                    <div class="mb-3">
+                        <label class="form-label">Event name<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" placeholder="Name" name="name"
+                            value="{{ old('name') }}" />
                     </div>
 
                     <input type="hidden" name="roomid" value="{{ $roomid }}">
 
-                    <div class="form-group mb-4">
-                        <p>Add a description: </p>
-                        <input type="text" name="description" value="{{ old('description') }}" class="form-control">
-                        
+                    <div class="mb-3">
+                        <label class="form-label">Description<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control " placeholder="Description" name="description"
+                            value="{{ old('description') }}" />
                     </div>
 
-                    <div class="form-group mb-4">
-                        <p>Student/Staff number (optional): </p>
-                        <input type="text" name="user_number" value="{{ old('user_number') }}" class="form-control">
-                        
+                    <div class="mb-3">
+                        <label class="form-label">Student/Staff number<span > (if you would like a confirmation email) </span></label>
+                        <input type="number" class="form-control" placeholder="Student/Staff number" name="user_number"
+                            value="{{ old('user_number') }}" />
                     </div>
-
-                    <div class="col-md-12 text-center">
-                        <button type="submit" class="btn btn-success" value="Submit">Submit</button>
-                        <a class="btn btn-secondary" href="#" onclick="history.go(-1)">Cancel</a>
-                    </div>
-
-
-
                     <input type="hidden" name="start_date_time" value="{{ $date . $slot1 }}" />
                     <input type="hidden" name="end_date_time" value="{{ $date . $slot2 }}" />
 
+                    <center>
+                        <button type="submit" class="btn btn-secondary">Submit</button>
+                    
+                        <a class="btn btn-secondary" href="#" onclick="history.go(-1)">Cancel</a>
+                    </center>
 
                 </form>
             </div>
-        </div>
+        </x-create-card>
 
     </x-slot>
 </x-layouts.app>

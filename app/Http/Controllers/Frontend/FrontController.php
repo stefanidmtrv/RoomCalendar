@@ -66,7 +66,7 @@ class FrontController extends Controller
             $request->session()->put('stnum', $stnum);
             return back();
         } else {
-            return back();
+            return back()->with('message', 'This number can not be found. Please try again.');
         }
     }
 

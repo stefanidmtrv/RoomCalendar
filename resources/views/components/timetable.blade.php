@@ -1,11 +1,6 @@
 
     <div class="table-responsive">
-{{-- users initially
-404 layout
 
-throttling 
-mailtrap
---}}
         <table class="table table-bordered text-center">
             <thead>
                 <tr class="bg-light-gray">
@@ -23,9 +18,6 @@ mailtrap
                 <tr>
                     <td class="align-middle">09:00</td>
                     <td>
-                        {{-- @foreach($room->events() as $event)
-                        {{$event}}
-                        @endforeach --}}
 
                         @if(\App\Models\Event::where('room_id', $room)->where('start_date_time',
                          \Carbon\Carbon::now()->startOfWeek()->addWeekday(0)->format('Y-m-d 09:00:00'))->exists())

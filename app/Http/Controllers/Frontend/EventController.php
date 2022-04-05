@@ -33,14 +33,15 @@ class EventController extends Controller
     public function create($slot1, $slot2, $date, $roomid)
 
     {
+
         $new_date = $date . " " . $slot1;
-        
+        $page_title = 'Create new event';
         
         if(EventController::isBooked($roomid, $new_date)){
             abort(400);
             
         }else{
-            return view('events.create', ['slot1' => $slot1, 'slot2' => $slot2, 'date' => $date, 'roomid' => $roomid]);
+            return view('events.create', ['slot1' => $slot1, 'slot2' => $slot2, 'date' => $date, 'roomid' => $roomid, 'page_title' => $page_title]);
         }
         
     }

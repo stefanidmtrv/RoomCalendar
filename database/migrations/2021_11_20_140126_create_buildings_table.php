@@ -17,7 +17,7 @@ class CreateBuildingsTable extends Migration
             $table->id();
             $table->string('name');
             $table->time('opening_time')->date_format;
-            $table->time('closing_time');
+            $table->time('closing_time')->date_format;
             $table->float('latitude');
             $table->float('longitude');
             $table->timestamps();
