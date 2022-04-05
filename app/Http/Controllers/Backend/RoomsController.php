@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Building;
 use App\Models\Room;
-
+use App\Models\Floor;
 
 
 class RoomsController extends Controller
@@ -26,7 +26,8 @@ class RoomsController extends Controller
 
         $page_title = 'Create new floor';
         $buildings = Building::orderBy('id', 'asc')->get();
-        return view('backend.rooms.create', compact('page_title', 'buildings'));
+        $floors = Floor::orderBy('id', 'asc')->get();
+        return view('backend.rooms.create', compact('page_title', 'buildings', 'floors'));
     }
 
     public function store(Request $request)

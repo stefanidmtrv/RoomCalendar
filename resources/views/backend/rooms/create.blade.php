@@ -15,21 +15,15 @@
                     @csrf
 
                     <div class="mb-3">
-                        <label class="form-label">Building<span class="text-danger">*</span></label>
-                        <select class="form-control" name="room_id">
+                        <label class="form-label">Floor ID<span class="text-danger">*</span></label>
+                        <select class="form-control" name="floor_id">
                             <option>Select...</option>
-                            @foreach ($buildings as $building)
-                                <option value="{{ $building->id }}">
-                                    {{ $building->name }}
+                            @foreach ($floors as $floor)
+                                <option value="{{ $floor->id }}">
+                                    {{ $floor->id }}
                                 </option>
                             @endforeach
                         </select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Floor ID<span class="text-danger">*</span></label>
-                        <input type="number" class="form-control" placeholder="Floor ID" name="floor_id"
-                            value="{{ old('floor_id') }}" />
                     </div>
 
                     <div class="mb-3">
