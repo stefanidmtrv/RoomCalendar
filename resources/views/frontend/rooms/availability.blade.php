@@ -25,9 +25,9 @@
                     <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
                 </svg>
 
-                <strong>{{ $currentHour }}</strong>
-                
-
+                <strong>{{ \Carbon\Carbon::now()->format('H:i')}}</strong>
+                <br>
+                <strong>{{ \Carbon\Carbon::now()->format('l, jS F')}}</strong>
             </div>
             </p>
 
@@ -43,7 +43,9 @@
             
                 @endif
             @else
-            <h1> Available </h1>
+            <h1 style="font-size:50px"> 
+                <p style="color:rgb(87, 86, 86);"> Available </p> 
+            </h1>
 
                 <br>
 
@@ -54,9 +56,8 @@
                 \Carbon\Carbon::now()->ceilHour(1)->format('Y-m-d H:i:s'))->exists())
                 
                 <div>
-                    <p>Next meeting: {{\Carbon\Carbon::now()->ceilHour(1)->format('H:i:s')}}
-
-                    </p>
+                    <h5 style="text-align:right;">Next meeting: {{\Carbon\Carbon::now()->ceilHour(1)->format('H:i')}}</h5>
+                    
                 </div>
 
                 @endif

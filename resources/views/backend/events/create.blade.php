@@ -11,7 +11,7 @@
 
         <x-create-card>
             <div class="container">
-
+                
                 <form action="{{ route('admin.event.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 

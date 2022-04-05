@@ -20,8 +20,8 @@ class StudentManagement extends Controller
     public function show () {
 
         $page_title = 'Student/Staff Number Management';
-        $empty_message = 'Not found';
-        $stNums = StNum::latest()->paginate(20);
+        $empty_message = 'No records found';
+        $stNums = StNum::orderBy('id', 'ASC')->get();
 
         return view('backend.stmgmt.show', compact('page_title', 'empty_message', 'stNums'));
 
@@ -37,15 +37,14 @@ class StudentManagement extends Controller
     public function store(Request $request) {
 
         $validation_rule = [
-            'stnum' => 'required'
+            'stnum' => 'required|integer|unique:stnum,stnum'
         ];
 
         $request->validate($validation_rule);
 
         $stnum = StNum::create(['stnum' => $request->stnum]);
 
-        $notify[] = ['success', 'Student Number has been added.'];
-        return redirect()->route('admin.stmgmt')->withNotify($notify);
+        return redirect()->route('admin.stmgmt')->with('message', 'A number has been created');
 
     }
 
@@ -55,9 +54,7 @@ class StudentManagement extends Controller
 
         $stnum->delete();
 
-        $notify[] = ['success', 'Student Number has been deleted.'];
-
-        return back()->withNotify($notify);
+        return back()->with('message', 'A number has been created');
     }
 
 }

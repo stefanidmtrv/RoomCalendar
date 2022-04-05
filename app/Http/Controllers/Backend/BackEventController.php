@@ -40,7 +40,7 @@ class BackEventController extends Controller
 
         $validation_rule = [
             'room_id' => 'required|integer',
-            'user_number' => 'numeric|max:10',
+            'user_number' => 'required|integer',
             'name' => 'required|max:255',
             'description' => 'required|max:1000',
             'start_date_time' => 'required',
@@ -59,7 +59,7 @@ class BackEventController extends Controller
             'end_date_time' => $request->end_date_time
         ]);
 
-        return redirect()->with('message', 'An event has been created');
+        return redirect()->route('admin.event')->with('message', 'An event has been created');
     }
 
     public function delete($event)

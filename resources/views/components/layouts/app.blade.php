@@ -27,7 +27,6 @@
 
     </header>
     <div class="container">
-        
             @if (session('message'))
             <div class="alert alert-success">
                 <ul>{{ session('message') }}</ul>

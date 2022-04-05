@@ -49,8 +49,7 @@ class RoomsController extends Controller
             'number_of_projectors' => $request->number_of_projectors
         ]);
 
-        $notify[] = ['success', 'Room has been added.'];
-        return redirect()->route('admin.room')->withNotify($notify);
+        return redirect()->route('admin.room')->with('message', 'A room has been created');
     }
 
     public function delete($room)
@@ -60,8 +59,6 @@ class RoomsController extends Controller
 
         $room->delete();
 
-        $notify[] = ['success', 'Room has been deleted.'];
-
-        return back()->withNotify($notify);
+        return back()->with('message', 'A room has been created');
     }
 }
