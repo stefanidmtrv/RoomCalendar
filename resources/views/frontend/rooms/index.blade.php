@@ -5,14 +5,18 @@
     </x-slot>
 
     <x-slot name="slot">
-        <div style="text-align: center; margin-top: 10%;">
+
+        <div class="d-flex flex-wrap">
             @forelse($rooms as $room)
-        
-            <a href="availability/{{$room->id}}" type="button" class="btn btn-success">Room:<br>{{ $room->id }}</a>
+                <div class="p-2 bd-highlight">
+                    <a href="availability/{{ $room->id }}" type="button" class="btn btn-secondary btn-lg">Room
+                        {{ $room->id }}</a>
+                </div>
             @empty
                 No rooms available
             @endforelse
         </div>
+
     </x-slot>
 
 </x-layouts.app>
