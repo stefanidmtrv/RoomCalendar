@@ -20,13 +20,16 @@ Route::namespace('Backend')->prefix('admin')->name('admin.')->group(function () 
     Route::group(['middleware' => ['role:admin']], function () {
 
         //admin
+        Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+
         //stmngm
         Route::get('stmgmt', [StudentManagement::class, 'show'])->name('stmgmt');
         Route::get('stmgmt/create', [StudentManagement::class, 'showCreate'])->name('stmgmt.create');
         Route::post('stmgmt/store', [StudentManagement::class, 'store'])->name('stmgmt.store');
         Route::get('stmgmt/delete/{id}', [StudentManagement::class, 'delete'])->name('stmgmt.delete');
-        Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-        
+        Route::get('stmgmt/edit/{id}', [StudentManagement::class, 'edit'])->name('stmgmt.edit');
+        Route::put('stmgmt/{id}', [StudentManagement::class, 'update'])->name('stmgmt.update');
+
         //Building management
         Route::get('building', [BuildingController::class, 'show'])->name('building');
         Route::get('building/create', [BuildingController::class, 'showCreate'])->name('building.create');

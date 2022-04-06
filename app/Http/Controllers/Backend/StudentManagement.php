@@ -47,7 +47,29 @@ class StudentManagement extends Controller
         return redirect()->route('admin.stmgmt')->with('message', 'A number has been created');
 
     }
+    public function edit($stnum)
+    {
+        $stnum = StNum::where('id', $stnum)->first();
+        $page_title = 'Update a student/staff number';
 
+        return view('backend.stmgmt.edit', compact('page_title', 'stnum'));
+    }
+
+    public function update(Request $request, $stnum)
+    {
+        $stnum = StNum::where('id', $stnum)->first();
+
+        $validation_rule = [
+            'stnum' => 'required|integer|unique:stnum,stnum'
+        ];
+
+        $request->validate($validation_rule);
+
+        $stnum->update(['stnum' => $request->stnum]);
+
+
+        return redirect()->route('admin.room')->with('message', 'A student/staff number has been updated');
+    }
     public function delete ($stnum) {
 
         $stnum = StNum::where('id', $stnum)->first();

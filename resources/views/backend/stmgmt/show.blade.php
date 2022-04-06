@@ -32,7 +32,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="#">
+                                    <a href="{{ route('admin.stmgmt.edit', $stnum->id) }}">
                                         Edit
                                     </a>
                                 </td>
