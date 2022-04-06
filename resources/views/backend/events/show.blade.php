@@ -39,12 +39,12 @@
                                 <td>{{ $event->end_date_time }}</td>
 
                                 <td>
-                                    <a href="{{ route('admin.building.delete', $event->id) }}">
+                                    <a href="{{ route('admin.event.delete', $event->id) }}">
                                         Delete
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="#">
+                                    <a href="{{ route('admin.event.edit', $event->id) }}">
                                         Edit
                                     </a>
                                 </td>

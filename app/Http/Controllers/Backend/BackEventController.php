@@ -54,7 +54,6 @@ class BackEventController extends Controller
             'user_number' => $request->user_number,
             'name' => $request->name,
             'description' => $request->description,
-            'isBooked' => true,
             'start_date_time' => $request->start_date_time,
             'end_date_time' => $request->end_date_time
         ]);
@@ -64,11 +63,49 @@ class BackEventController extends Controller
 
     public function delete($event)
     {
-
+        //dd($event->id);
         $event = Event::where('id', $event)->first();
 
         $event->delete();
 
         return back()->with('message', 'An event was deleted');
+    }
+
+    public function edit($event)
+    {
+        $event = Event::where('id', $event)->first();
+        // dd($event);
+        $page_title = 'Update event';
+        $rooms = Room::orderBy('id', 'asc')->get();
+
+        return view('backend.events.edit', compact('page_title', 'rooms', 'event'));
+        }
+
+    public function update(Request $request, $event)
+    {
+        $event = Event::where('id', $event)->first();
+        
+        $validation_rule = [
+            'room_id' => 'required|integer',
+            'user_number' => 'integer',
+            'name' => 'required|max:255',
+            'description' => 'required|max:1000',
+            'start_date_time' => 'required',
+            'end_date_time' => 'required'
+        ];
+
+        $request->validate($validation_rule);
+
+        $event->update([
+            'room_id' => $request->room_id,
+            'user_number' => $request->user_number,
+            'name' => $request->name,
+            'description' => $request->description,
+            'start_date_time' => $request->start_date_time,
+            'end_date_time' => $request->end_date_time
+        ]);
+        
+
+        return redirect()->route('admin.event')->with('message', 'An event has been updated');
     }
 }

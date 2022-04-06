@@ -12,9 +12,9 @@
         <x-create-card>
             <div class="container">
                 
-                <form action="{{ route('admin.event.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.event.update', $event) }}" method="POST" enctype="multipart/form-data">
                     @csrf
-
+                    @method('PUT')
                     <div class="mb-3">
                         <label class="form-label">Room ID<span class="text-danger">*</span></label>
                         <select class="form-control" name="room_id">
@@ -60,7 +60,7 @@
                         <button type="submit" class="btn btn-secondary">Submit</button>
                     </center>
                 </form>
-            
+            </div>
         </x-create-card>
 
     </x-slot>

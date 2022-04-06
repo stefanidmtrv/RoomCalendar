@@ -49,6 +49,8 @@ Route::namespace('Backend')->prefix('admin')->name('admin.')->group(function () 
         Route::get('event/create', [BackEventController::class, 'showCreate'])->name('event.create');
         Route::post('event/store', [BackEventController::class, 'store'])->name('event.store');
         Route::get('event/delete/{id}', [BackEventController::class, 'delete'])->name('event.delete');
+        Route::get('event/edit/{id}', [BackEventController::class, 'edit'])->name('event.edit');
+        Route::put('event/{id}', [BackEventController::class, 'update'])->name('event.update');
     });
 });
 
