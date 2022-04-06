@@ -37,6 +37,8 @@ Route::namespace('Backend')->prefix('admin')->name('admin.')->group(function () 
         Route::get('floor/create', [FloorController::class, 'showCreate'])->name('floor.create');
         Route::post('floor/store', [FloorController::class, 'store'])->name('floor.store');
         Route::get('floor/delete/{id}', [FloorController::class, 'delete'])->name('floor.delete');
+        Route::get('floor/edit/{id}', [FloorController::class, 'edit'])->name('floor.edit');
+        Route::put('floor/{id}', [FloorController::class, 'update'])->name('floor.update');
 
         //Room management
         Route::get('room', [RoomsController::class, 'show'])->name('room');

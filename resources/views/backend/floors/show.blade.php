@@ -35,7 +35,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="#">
+                                    <a href="{{ route('admin.floor.edit', $floor->id) }}">
                                         Edit
                                     </a>
                                 </td>

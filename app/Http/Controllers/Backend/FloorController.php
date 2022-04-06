@@ -47,7 +47,34 @@ class FloorController extends Controller
 
         return redirect()->route('admin.floor')->with('message', 'A floor has been created');
     }
+    public function edit($floor)
+    {
+        $floor = Floor::where('id', $floor)->first();
+        $page_title = 'Update a floor';
+        $buildings = Building::orderBy('id', 'asc')->get();
 
+        return view('backend.floors.edit', compact('page_title', 'floor', 'buildings'));
+    }
+
+    public function update(Request $request, $floor)
+    {
+        $floor = Floor::where('id', $floor)->first();
+
+        
+        $validation_rule = [
+            'building_id' => 'required|numeric',
+            'number' => 'required|numeric'
+        ];
+
+        $request->validate($validation_rule);
+
+        $floor->update([
+            'building_id' => $request->building_id,
+            'number' => $request->number
+        ]);
+
+        return redirect()->route('admin.floor')->with('message', 'A floor has been updated');
+    }
     public function delete($floor)
     {
 
