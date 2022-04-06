@@ -41,7 +41,7 @@
                                                 </a>
                                             </td>
                                             <td>
-                                                <a href="#">
+                                                <a href="{{ route('admin.room.edit', $room->id) }}">
                                                     Edit
                                                 </a>
                                             </td>

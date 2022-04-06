@@ -43,6 +43,8 @@ Route::namespace('Backend')->prefix('admin')->name('admin.')->group(function () 
         Route::get('room/create', [RoomsController::class, 'showCreate'])->name('room.create');
         Route::post('room/store', [RoomsController::class, 'store'])->name('room.store');
         Route::get('room/delete/{id}', [RoomsController::class, 'delete'])->name('room.delete');
+        Route::get('room/edit/{id}', [RoomsController::class, 'edit'])->name('room.edit');
+        Route::put('room/{id}', [RoomsController::class, 'update'])->name('room.update');
 
         //Event management
         Route::get('event', [BackEventController::class, 'show'])->name('event');

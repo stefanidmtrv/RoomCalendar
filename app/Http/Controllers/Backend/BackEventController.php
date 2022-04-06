@@ -60,31 +60,20 @@ class BackEventController extends Controller
 
         return redirect()->route('admin.event')->with('message', 'An event has been created');
     }
-
-    public function delete($event)
-    {
-        //dd($event->id);
-        $event = Event::where('id', $event)->first();
-
-        $event->delete();
-
-        return back()->with('message', 'An event was deleted');
-    }
-
     public function edit($event)
     {
         $event = Event::where('id', $event)->first();
         // dd($event);
-        $page_title = 'Update event';
+        $page_title = 'Update an event';
         $rooms = Room::orderBy('id', 'asc')->get();
 
         return view('backend.events.edit', compact('page_title', 'rooms', 'event'));
-        }
+    }
 
     public function update(Request $request, $event)
     {
         $event = Event::where('id', $event)->first();
-        
+
         $validation_rule = [
             'room_id' => 'required|integer',
             'user_number' => 'integer',
@@ -104,8 +93,17 @@ class BackEventController extends Controller
             'start_date_time' => $request->start_date_time,
             'end_date_time' => $request->end_date_time
         ]);
-        
+
 
         return redirect()->route('admin.event')->with('message', 'An event has been updated');
+    }
+    public function delete($event)
+    {
+        //dd($event->id);
+        $event = Event::where('id', $event)->first();
+
+        $event->delete();
+
+        return back()->with('message', 'An event was deleted');
     }
 }

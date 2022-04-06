@@ -51,14 +51,46 @@ class RoomsController extends Controller
 
         return redirect()->route('admin.room')->with('message', 'A room has been created');
     }
+    public function edit($room)
+    {
+        $room = Room::where('id', $room)->first();
+        $page_title = 'Update a room';
+        $buildings = Building::orderBy('id', 'asc')->get();
+        $floors = Floor::orderBy('id', 'asc')->get();
+
+        return view('backend.rooms.edit', compact('page_title','room', 'buildings', 'floors'));
+    }
+
+    public function update(Request $request, $room)
+    {
+        $room = Room::where('id', $room)->first();
+
+        $validation_rule = [
+            'floor_id' => 'required',
+            'table_capacity' => 'required|numeric',
+            'computer_capacity' => 'required|numeric',
+            'number_of_projectors' => 'required|numeric'
+        ];
+
+        $request->validate($validation_rule);
+
+        $room->update([
+            'floor_id' => $request->floor_id,
+            'table_capacity' => $request->table_capacity,
+            'computer_capacity' => $request->computer_capacity,
+            'number_of_projectors' => $request->number_of_projectors
+        ]);
+
+
+        return redirect()->route('admin.room')->with('message', 'A room has been updated');
+    }
 
     public function delete($room)
     {
-
         $room = Room::where('id', $room)->first();
 
         $room->delete();
 
-        return back()->with('message', 'A room has been created');
+        return back()->with('message', 'A room has been deleted');
     }
 }
