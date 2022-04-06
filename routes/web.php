@@ -26,11 +26,14 @@ Route::namespace('Backend')->prefix('admin')->name('admin.')->group(function () 
         Route::post('stmgmt/store', [StudentManagement::class, 'store'])->name('stmgmt.store');
         Route::get('stmgmt/delete/{id}', [StudentManagement::class, 'delete'])->name('stmgmt.delete');
         Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+        
         //Building management
         Route::get('building', [BuildingController::class, 'show'])->name('building');
         Route::get('building/create', [BuildingController::class, 'showCreate'])->name('building.create');
         Route::post('building/store', [BuildingController::class, 'store'])->name('building.store');
         Route::get('building/delete/{id}', [BuildingController::class, 'delete'])->name('building.delete');
+        Route::get('building/edit/{id}', [BuildingController::class, 'edit'])->name('building.edit');
+        Route::put('building/{id}', [BuildingController::class, 'update'])->name('building.update');
 
         //Floor management
         Route::get('floor', [FloorController::class, 'show'])->name('floor');

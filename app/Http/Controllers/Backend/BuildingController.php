@@ -56,7 +56,39 @@ class BuildingController extends Controller
 
         return redirect()->route('admin.building')->with('message', 'A building has been created');
     }
+    public function edit($building)
+    {
+        $building = Building::where('id', $building)->first();
+        $page_title = 'Update a building';
 
+        return view('backend.buildings.edit', compact('page_title', 'building'));
+    }
+
+    public function update(Request $request, $building)
+    {
+        $building = Building::where('id', $building)->first();
+
+        $validation_rule = [
+            'name' => 'required|max:255',
+            'opening_time' => 'required',
+            'closing_time' => 'required',
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric'
+        ];
+
+        $request->validate($validation_rule);
+
+        $building->update([
+            'name' => $request->name,
+            'opening_time' => $request->opening_time,
+             'closing_time' => $request->closing_time,
+            'latitude' => $request->latitude,
+             'longitude' => $request->longitude
+        ]);
+
+
+        return redirect()->route('admin.building')->with('message', 'A building has been updated');
+    }
     public function delete($building)
     {
 

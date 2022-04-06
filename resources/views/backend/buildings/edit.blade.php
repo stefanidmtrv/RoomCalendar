@@ -12,9 +12,9 @@
         <x-create-card>
             <div class="container">
                 
-                <form action="{{ route('admin.building.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.building.update', $building) }}" method="POST" enctype="multipart/form-data">
                         @csrf
-
+                        @method('PUT')
                         <div class="mb-3">
                             <label class="form-label">Name <span class="text-danger">*</span></label>
                             <input type="text" class="form-control " placeholder="Name" name="name"

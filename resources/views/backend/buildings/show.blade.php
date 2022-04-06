@@ -42,7 +42,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="#">
+                                    <a href="{{ route('admin.building.edit', $building->id) }}">
                                         Edit
                                     </a>
                                 </td>
