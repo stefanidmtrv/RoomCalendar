@@ -32,7 +32,7 @@
             </div>
             </p>
 
-            
+            <div class="shadow-sm p-3 mb-5 bg-body rounded">
             @if ($isAvailable == false)
                 <h1> Unavailable </h1>
                 @if(\App\Models\Event::where('room_id', $room->id)->where('start_date_time',
@@ -44,29 +44,33 @@
             
                 @endif
             @else
+            
             <h1 style="font-size:50px"> 
                 <p style="color:rgb(87, 86, 86);"> Available </p> 
             </h1>
-
+            </div>
                 <br>
 
-            <a class="btn btn-success btn-lg" href="{{ route('events.create',
-            ['slot1'=> $lastHourNoDate, 'slot2' => $nextHourNoDate, 'date' => $currentDate, 'roomid' => $room->id]) }}">Book now</a>
-            
-                @if(\App\Models\Event::where('room_id', $room->id)->where('start_date_time',
+            @if(\App\Models\Event::where('room_id', $room->id)->where('start_date_time',
                 \Carbon\Carbon::now()->ceilHour(1)->format('Y-m-d H:i:s'))->exists())
-                
-                <div>
-                    <h5 style="text-align:right;">Next meeting: {{\Carbon\Carbon::now()->ceilHour(1)->format('H:i')}}</h5>
-                    
+                <div class="position-relative">
+                    <div class="shadow p-3 mb-5 bg-body rounded position-absolute top-0 end-0">
+                        <h2 style="color:rgb(87, 86, 86);">Next meeting: {{\Carbon\Carbon::now()->ceilHour(1)->format('H:i')}}</h2>
+                        
+                    </div>
                 </div>
 
                 @endif
             @endif
+            <br>
+
+            <a class="btn btn-success btn-lg shadow p-3 mb-2" href="{{ route('events.create',
+            ['slot1'=> $lastHourNoDate, 'slot2' => $nextHourNoDate, 'date' => $currentDate, 'roomid' => $room->id]) }}">Book now</a>
+            
 
             <br>
             <br>
-            <a class="btn btn-outline-secondary" href="{{ route('rooms.show', 
+            <a class="btn btn-outline-secondary shadow p-3 mb-2" href="{{ route('rooms.show', 
             ['room' => $room->id]) }}">Timetable</a>
         </div>
 

@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" class="btn btn-secondary shadow p-2 mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Room information
 </button>
 

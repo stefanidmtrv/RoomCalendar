@@ -25,7 +25,7 @@ class RoomFactory extends Factory
             'floor_id'=>$this->faker->numberBetween($min = 1, $max=3),
             'table_capacity' => $this->faker->numberBetween($min = 0, $max=30),
             'computer_capacity' => $this->faker->numberBetween($min = 0, $max=30),
-            'number_of_projectors' => $this->faker->numberBetween($min = 0, $max=30)
+            'number_of_projectors' => $this->faker->numberBetween($min = 0, $max=5)
         ];
     }
 }
