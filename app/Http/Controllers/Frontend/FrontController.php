@@ -105,6 +105,12 @@ class FrontController extends Controller
                 }
             }
 
+            $isExisting = Event::where('room_id', $room->id)->where('start_date_time',
+            Carbon::now()->ceilHour(1)->format('Y-m-d H:i:s'))->exists();
+            $eventInfo = Event::where('room_id', $room->id)->where('start_date_time',
+            Carbon::now()->ceilHour(1)->format('Y-m-d H:i:s'))->first();
+            $eventExist = Carbon::now()->ceilHour(1)->format('H:i');
+
             return view('frontend.rooms.availability', [
                 'room' => $room,
                 'isAvailable' => $isAvailable,
@@ -114,6 +120,9 @@ class FrontController extends Controller
                 'nextHourNoDate' => $nextHourNoDate,
                 'currentHour' => $currentHour,
                 'currentDate' => $currentDate,
+                'isExisting' => $isExisting,
+                'eventExist' => $eventExist,
+                'eventInfo' => $eventInfo
             ]);
         } else {
             return view('frontend.rooms.pin');
