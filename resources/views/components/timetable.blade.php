@@ -1,7 +1,7 @@
 
     <div class="table-responsive">
 
-        <table class="table table-bordered text-center">
+        <table class="table table-bordered border border-2 text-center">
             <thead>
                 <tr class="bg-light-gray">
                     <th class="text-uppercase">Time

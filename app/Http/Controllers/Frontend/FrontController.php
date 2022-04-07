@@ -129,14 +129,7 @@ class FrontController extends Controller
         }
     }
 
-    public function showPins()
-    {
-
-        $stnums = StNum::get();
-
-        return view('frontend.rooms.mpins')->with('pins', $stnums);
-    }
-
+   
     public function pinStore(Request $request)
     {
 

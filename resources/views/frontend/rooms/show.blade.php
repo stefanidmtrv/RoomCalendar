@@ -18,14 +18,13 @@
             </x-room-info>
                
 
-            <a class="btn btn-outline-secondary" href="#" onclick="history.go(-1)">Go Back</a>
+            <a class="btn btn-outline-secondary p-2 mb-2" href="#" onclick="history.go(-1)">Go Back</a>
 
 
             <div>
-                <p>Week starting on: {{\Carbon\Carbon::now()
-                ->startOfWeek()->addWeekday(0)->format('d-m-Y')}}</p>
-                <p>Week ending on: {{\Carbon\Carbon::now()
-                ->startOfWeek()->addWeekday(4)->format('d-m-Y')}}</p>
+                <strong><p>Week starting on: {{\Carbon\Carbon::now()
+                ->startOfWeek()->addWeekday(0)->format('l, jS F')}}</p></strong>
+                
             </div>
             
 

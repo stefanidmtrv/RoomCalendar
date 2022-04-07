@@ -41,7 +41,7 @@ class EventController extends Controller
             abort(400);
             
         }else{
-            return view('events.create', ['slot1' => $slot1, 'slot2' => $slot2, 'date' => $date, 'roomid' => $roomid, 'page_title' => $page_title]);
+            return view('frontend.events.create', ['slot1' => $slot1, 'slot2' => $slot2, 'date' => $date, 'roomid' => $roomid, 'page_title' => $page_title]);
         }
         
     }
@@ -90,42 +90,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        return view('events.show', ['event' => $event]);
+        return view('frontend.events.show', ['event' => $event]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    // public function destroy(Event $event)
-    // {
-    //     $event->delete();
-
-    //     return redirect()->route('rooms.show', ['room' => $event->room_id])->with('message', 'Event was deleted.');
-    // }
 }

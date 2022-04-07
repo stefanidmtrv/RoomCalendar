@@ -74,28 +74,10 @@ Route::namespace('Frontend')->group(function () {
     Route::post('/rooms/pin', [FrontController::class, 'pinCheck'])->name('rooms.pin');
     Route::post('/rooms/pin-store', [FrontController::class, 'pinStore'])->name('pin.store');
     
+    //?
     Route::get('user/event/delete/{id}', [BackEventController::class, 'delete'])->name('user.event.delete')->middleware('emailCancellation');
 
-
-    
-
-    // Route::get('/test', function(){
-        
-    //     return "ok";
-    // });
-    // Route::get('/displays/create', [DisplayController::class, 'create'])->name('displays.create');
-    // Route::get('admin/rooms', [RoomController::class, 'index'])->name('rooms.index')->middleware('role:admin');
-    // Route::delete('rooms/{room}', [RoomController::class, 'destroy'])->name('rooms.destroy')->middleware('role:admin');
-    // Route::delete('rooms/room/{event}', [EventController::class, 'destroy'])->name('events.destroy')->middleware('role:admin');
-    // Route::get('rooms/pins', [RoomController::class, 'showPins'])->name('rooms.pins');
-
-    //display
-    // Route::post('/displays', [DisplayController::class, 'store'])->name('displays.store');
-
-    //rooms
-   
-
-    //events
+    //frontend event
     Route::get('/rooms/room/{event}', [EventController::class, 'show'])->name('events.show');
     Route::get('/rooms/room/event/create/{slot1}/{slot2}/{date}/{roomid}', [EventController::class, 'create'])->name('events.create');
     Route::post('/rooms/room/event', [EventController::class, 'store'])->name('events.store');
