@@ -35,7 +35,12 @@
             <div class=" p-3 mb-5 bg-body rounded">
             @if ($isAvailable == false)
             <h1 style="font-size:50px"> 
-                <p style="color:rgb(87, 86, 86);"> Unavailable </p> 
+                <p style="color:rgb(87, 86, 86);"> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#F24D4D" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                        <circle cx="8" cy="8" r="8"/>
+                      </svg>
+                    Currently 
+                    Unavailable </p> 
             </h1>
             
             @if($isExisting)
@@ -51,7 +56,11 @@
             @else
             
             <h1 style="font-size:50px"> 
-                <p style="color:rgb(87, 86, 86);"> Available </p> 
+                <p style="color:rgb(87, 86, 86);"> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="green" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                        <circle cx="8" cy="8" r="8"/>
+                      </svg>
+                    Available </p> 
             </h1>
             
                  <a class="btn btn-success btn-lg shadow p-3 mb-2" href="{{ route('events.create',
