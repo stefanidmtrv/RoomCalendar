@@ -29,6 +29,7 @@ class EventController extends Controller
     public function create($slot1, $slot2, $date, $roomid)
 
     {
+        
         $new_date = $date . " " . $slot1;
         $page_title = 'Create new event';
         

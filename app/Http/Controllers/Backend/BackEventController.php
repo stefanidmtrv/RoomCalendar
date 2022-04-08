@@ -28,7 +28,6 @@ class BackEventController extends Controller
 
     public function showCreate()
     {
-
         $page_title = 'Create new event';
         $rooms = Room::orderBy('id', 'asc')->get();
 
