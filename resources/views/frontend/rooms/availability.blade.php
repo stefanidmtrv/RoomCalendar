@@ -31,6 +31,7 @@
                 <strong>{{ \Carbon\Carbon::now()->format('l, jS F')}}</strong>
             </div>
             </p>
+
     <div class="position-relative">
             <div class=" p-3 mb-5 bg-body rounded">
             @if ($isAvailable == false)
@@ -68,23 +69,19 @@
                     'date' => $currentDate, 'roomid' => $room->id]) }}">Book now</a>
                 
             @if($isExisting)
-                <div class="position-relative mb-5">
+                
                     <div class="shadow p-3 mb-5 bg-body rounded position-absolute top-0 end-0">
                         <h2 style="color:rgb(87, 86, 86);">Next meeting: {{$eventExist}}</h2>
                         <b>{{$eventInfo->name}}</b>
                     </div>
-                    
-                </div>
+                 
                 @endif
             @endif
             <br>
             <a class="btn btn-outline-secondary shadow p-3 mb-2" href="{{ route('rooms.show', 
                     ['room' => $room->id]) }}">Timetable</a>
-            <br>
-            <br>
-
             
-        </div>
+            </div>
     </div>
 
     </x-slot>
