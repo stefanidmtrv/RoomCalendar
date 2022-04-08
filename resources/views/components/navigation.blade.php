@@ -6,25 +6,31 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            @if(Route::currentRouteName() == 'home' || Request::route()->getPrefix() == '/admin')
+            
+            @if(Route::currentRouteName() == 'home')
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
                 </li>
             </ul>
-        
-                <ul class="navbar-nav ml-auto">
+            @endif
+
+                <ul class="navbar-nav mt-auto">
                     @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Login</a>
-                        </li>
+                        @if(Route::currentRouteName() == 'home')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">Login</a>
+                            </li>
+                        @endif
                     @endguest
-            @endif        
+             
+                 
                 @auth
                 
                     @if (auth()->user()->hasRole('admin'))
                         <li class="nav-item">
-
+                            
                             <a class="nav-link active" href="{{ route('admin.dashboard') }}">
                                 Admin
                             </a>
