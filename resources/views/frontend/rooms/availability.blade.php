@@ -32,7 +32,7 @@
             </div>
             </p>
     <div class="position-relative">
-            <div class="shadow-sm p-3 mb-5 bg-body rounded">
+            <div class=" p-3 mb-5 bg-body rounded">
             @if ($isAvailable == false)
             <h1 style="font-size:50px"> 
                 <p style="color:rgb(87, 86, 86);"> Unavailable </p> 

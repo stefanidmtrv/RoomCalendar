@@ -5,13 +5,9 @@ namespace App\Http\Controllers\Frontend;
 
 
 use Illuminate\Http\Request;
-use App\Models\Room;
 use App\Models\Event;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
-use App\Mail\NotificationEmail;
-use App\View\Components\Timetable;
-use Facade\FlareClient\Time\Time;
-use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Mail\RoomBooked;
 use Mail;
@@ -33,7 +29,6 @@ class EventController extends Controller
     public function create($slot1, $slot2, $date, $roomid)
 
     {
-
         $new_date = $date . " " . $slot1;
         $page_title = 'Create new event';
         
