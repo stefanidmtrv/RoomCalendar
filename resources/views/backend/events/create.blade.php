@@ -28,7 +28,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Student/Staff number<span > (optional) </span></label>
+                        <label class="form-label">Student/Staff number<span class="text-danger">*</span></label>
                         <input type="number" class="form-control" placeholder="Student/Staff number" name="user_number"
                             value="{{ old('user_number') }}" />
                     </div>

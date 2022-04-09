@@ -15,6 +15,7 @@ class RoomBooked extends Mailable implements ShouldQueue
     use Queueable, SerializesModels;
 
     public $studentNum;
+    public $event;
     public $roomNum;
     public $start_time;
     public $end_time;
@@ -28,10 +29,11 @@ class RoomBooked extends Mailable implements ShouldQueue
      */
     public function __construct(Event $event)
     {
+        $this->event = $event;
         $this->event_id = $event->id;
         $this->studentNum = $event->user_number;
         $this->roomNum = $event->room_id;
-        $this->date = Carbon::parse($event->start_date_time)->format('Y-m-d');
+        $this->date = Carbon::parse($event->start_date_time)->format('jS F');
         $this->start_time = Carbon::parse($event->start_date_time)->format('H:i');
         $this->end_time = Carbon::parse($event->end_date_time)->format('H:i');
     }

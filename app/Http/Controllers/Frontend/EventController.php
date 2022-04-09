@@ -46,7 +46,7 @@ class EventController extends Controller
 
         $validatedData = $request->validate([
             //'room_id' => 'required|integer',
-            'user_number' => 'nullable|max:10',
+            'user_number' => 'required|max:10',
             'name' => 'required|max:255',
             'description' => 'required|max:1000',
             'start_date_time' => 'required',
