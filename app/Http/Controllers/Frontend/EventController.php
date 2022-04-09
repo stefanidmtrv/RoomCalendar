@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Frontend;
-// require 'vendor/autoload.php';
-
 
 use Illuminate\Http\Request;
 use App\Models\Event;

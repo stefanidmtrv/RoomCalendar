@@ -75,7 +75,7 @@ Route::namespace('Frontend')->group(function () {
     Route::post('/rooms/pin-store', [FrontController::class, 'pinStore'])->name('pin.store');
     
     //?
-    Route::get('user/event/delete/{id}', [BackEventController::class, 'delete'])->name('user.event.delete')->middleware('emailCancellation');
+    Route::get('user/event/delete/{id}', [BackEventController::class, 'delete'])->name('user.event.delete');
 
     //frontend event
     Route::get('/rooms/room/{event}', [EventController::class, 'show'])->name('events.show');

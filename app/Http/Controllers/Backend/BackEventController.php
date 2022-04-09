@@ -39,7 +39,7 @@ class BackEventController extends Controller
 
         $validation_rule = [
             'room_id' => 'required|integer',
-            'user_number' => 'integer',
+            'user_number' => 'nullable|max:10',
             'name' => 'required|max:255',
             'description' => 'required|max:1000',
             'start_date_time' => 'required',
