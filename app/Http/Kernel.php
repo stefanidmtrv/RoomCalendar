@@ -67,5 +67,6 @@ class Kernel extends HttpKernel
         'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
         'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
         'emailCancellation' => \App\Http\Middleware\EmailCancellation::class,
+        'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
     ];
 }

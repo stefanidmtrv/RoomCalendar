@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use App\Mail\RoomBooked;
@@ -65,10 +65,7 @@ class EventController extends Controller
         if($event->user_number != null) {
            $email = $event->user_number . "@swansea.ac.uk";
 
-           $date = Carbon::parse($event->start_date_time)->format('Y-m-d');
-           $start_time = Carbon::parse($event->start_date_time)->format('H:i');
-           $end_time = Carbon::parse($event->end_date_time)->format('H:i');
-
+           
         Mail::to($email)
             ->send(new RoomBooked($event));
         }
@@ -87,4 +84,14 @@ class EventController extends Controller
         return view('frontend.events.show', ['event' => $event]);
     }
 
+    public function delete($event)
+    {
+        
+        $event = Event::where('id', $event)->first();
+
+        $event->delete();
+
+        return 'Your event was deleted';
+    }
+   
 }

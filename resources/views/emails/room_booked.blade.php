@@ -6,12 +6,12 @@ You booked room {{$roomNum}} on {{$date}} from {{$start_time}} until {{$end_time
 
 Thank you,
 
-Swansea Uni
+Swansea University
 
-@emailCancellation
-<a href="{{ route('user.event.delete', $event_id) }}">
-Cancel event
-</a>
-@endemailCancellation
+@component('mail::button', ['url' =>URL::temporarySignedRoute(
+    'user.event.delete', now()->addMinutes(30), ['id' => $event_id])])
+    Delete event
+@endcomponent
+
 
 @endcomponent

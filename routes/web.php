@@ -74,10 +74,9 @@ Route::namespace('Frontend')->group(function () {
     Route::post('/rooms/pin', [FrontController::class, 'pinCheck'])->name('rooms.pin');
     Route::post('/rooms/pin-store', [FrontController::class, 'pinStore'])->name('pin.store');
     
-    //?
-    Route::get('user/event/delete/{id}', [BackEventController::class, 'delete'])->name('user.event.delete');
-
-    //frontend event
+    //Event
+    Route::get('user/event/delete/{id}', [EventController::class, 'delete'])->name('user.event.delete')->middleware('signed');
+    Route::get('/generate-signature/{id}', [EventController::class,'signature'])->name('signature');
     Route::get('/rooms/room/{event}', [EventController::class, 'show'])->name('events.show');
     Route::get('/rooms/room/event/create/{slot1}/{slot2}/{date}/{roomid}', [EventController::class, 'create'])->name('events.create');
     Route::post('/rooms/room/event', [EventController::class, 'store'])->name('events.store');

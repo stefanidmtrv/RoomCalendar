@@ -98,7 +98,7 @@ class BackEventController extends Controller
     }
     public function delete($event)
     {
-        //dd($event->id);
+        
         $event = Event::where('id', $event)->first();
 
         $event->delete();
