@@ -16,7 +16,7 @@
             
             <tbody>
                 <tr>
-                    <td class="align-middle">09:00</td>
+                    <td class="align-middle"><strong>09:00</strong></td>
                     <td>
 
                         @if(\App\Models\Event::where('room_id', $room)->where('start_date_time',

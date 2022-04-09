@@ -1,6 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #424747;">
     <div class="container-fluid">
+        @if(Route::currentRouteName() == 'availability' || Route::currentRouteName() == 'home')
         <a class="navbar-brand" href="#">Calendar</a>
+        @else
+        <a class="navbar-brand" href="javascript:history.back()">Calendar</a>
+        @endif
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
