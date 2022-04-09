@@ -42,9 +42,11 @@
             
         </div>
         
-           
-        
-         
-
     </x-slot>
+    @push('script-head')
+<script>
+setTimeout(function(){ location.reload(); }, 12*10000);
+</script>
+@endpush
 </x-layouts.app>
+
