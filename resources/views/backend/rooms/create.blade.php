@@ -7,7 +7,7 @@
 
     <x-slot name="slot">
 
-        <a class="btn btn-outline-secondary btn-sm" href="{{ route('admin.dashboard') }}">Go back</a>
+        <a class="btn btn-outline-secondary btn-sm" href="{{ route('admin.room') }}">Go back</a>
 
         <x-create-card>
             <div class="container">
