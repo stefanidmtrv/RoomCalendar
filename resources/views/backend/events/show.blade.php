@@ -38,14 +38,15 @@
                                 <td>{{ $event->start_date_time }}</td>
                                 <td>{{ $event->end_date_time }}</td>
 
-                                <td>
-                                    <a href="{{ route('admin.event.delete', $event->id) }}">
-                                        Delete
-                                    </a>
-                                </td>
+                                
                                 <td>
                                     <a href="{{ route('admin.event.edit', $event->id) }}">
                                         Edit
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="text-danger" href="{{ route('admin.event.delete', $event->id) }}">
+                                        Delete
                                     </a>
                                 </td>
                             </tr>

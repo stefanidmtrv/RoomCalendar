@@ -29,14 +29,15 @@
                                 <td>{{ $floor->building->name }}</td>
                                 <td>{{ $floor->number }}</td>
 
-                                <td>
-                                    <a href="{{ route('admin.floor.delete', $floor->id) }}">
-                                        Delete
-                                    </a>
-                                </td>
+                                
                                 <td>
                                     <a href="{{ route('admin.floor.edit', $floor->id) }}">
                                         Edit
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="text-danger" href="{{ route('admin.floor.delete', $floor->id) }}">
+                                        Delete
                                     </a>
                                 </td>
                             </tr>

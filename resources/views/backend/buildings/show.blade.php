@@ -36,14 +36,16 @@
                                 <td>{{ $building->longitude }}</td>
                                 <td>{{ $building->latitude }}</td>
 
-                                <td>
-                                    <a href="{{ route('admin.building.delete', $building->id) }}">
-                                        Delete
-                                    </a>
-                                </td>
+                                
                                 <td>
                                     <a href="{{ route('admin.building.edit', $building->id) }}">
                                         Edit
+                                    </a>
+                                </td>
+                                
+                                <td>
+                                    <a class="text-danger" href="{{ route('admin.building.delete', $building->id) }}">
+                                        Delete
                                     </a>
                                 </td>
                             </tr>

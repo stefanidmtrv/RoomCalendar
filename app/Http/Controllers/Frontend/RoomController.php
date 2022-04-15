@@ -127,32 +127,5 @@ class RoomController extends Controller
         }
     }
 
-    public function showPins()
-    {
 
-        $stnums = StNum::get();
-
-        return view('frontend.rooms.mpins')->with('pins', $stnums);
-    }
-
-    public function pinStore(Request $request)
-    {
-
-        $rooms = Room::get();
-
-        if ($request->stnum) {
-            $stnum = new StNum();
-            $stnum->stnum = $request->stnum;
-            // $pin->room = 0;
-            $stnum->Save();
-        }
-        return view('admin.rooms.index', ['rooms' => $rooms]);
-    }
-
-    public function destroy(Room $room)
-    {
-        $room->delete();
-
-        return redirect()->route('rooms.index')->with('message', 'Event was deleted.');
-    }
 }

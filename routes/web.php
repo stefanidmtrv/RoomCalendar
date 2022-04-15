@@ -19,10 +19,10 @@ require __DIR__ . '/auth.php';
 Route::namespace('Backend')->prefix('admin')->name('admin.')->group(function () {
     Route::group(['middleware' => ['role:admin']], function () {
 
-        //admin
+        //Admin
         Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
-        //stmngm
+        //Sudent/staff number management
         Route::get('stmgmt', [StudentManagement::class, 'show'])->name('stmgmt');
         Route::get('stmgmt/create', [StudentManagement::class, 'showCreate'])->name('stmgmt.create');
         Route::post('stmgmt/store', [StudentManagement::class, 'store'])->name('stmgmt.store');

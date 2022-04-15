@@ -26,14 +26,15 @@
                             <tr>
                                 <td>{{ $stnum->id }}</td>
                                 <td>{{ $stnum->stnum }}</td>
-                                <td>
-                                    <a href="{{ route('admin.stmgmt.delete', $stnum->id) }}">
-                                        Delete
-                                    </a>
-                                </td>
+                                
                                 <td>
                                     <a href="{{ route('admin.stmgmt.edit', $stnum->id) }}">
                                         Edit
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="text-danger" href="{{ route('admin.stmgmt.delete', $stnum->id) }}">
+                                        Delete
                                     </a>
                                 </td>
                             </tr>

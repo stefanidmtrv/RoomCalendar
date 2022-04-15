@@ -35,14 +35,16 @@
                                             <td>{{ $room->computer_capacity }}</td>
                                             <td>{{ $room->number_of_projectors }}</td>
 
-                                            <td>
-                                                <a href="{{ route('admin.room.delete', $room->id) }}">
-                                                    Delete
-                                                </a>
-                                            </td>
+                                            
                                             <td>
                                                 <a href="{{ route('admin.room.edit', $room->id) }}">
                                                     Edit
+                                                </a>
+                                            </td>
+
+                                            <td>
+                                                <a class="text-danger" href="{{ route('admin.room.delete', $room->id) }}">
+                                                    Delete
                                                 </a>
                                             </td>
                                         </tr>

@@ -62,7 +62,6 @@ class BackEventController extends Controller
     public function edit($event)
     {
         $event = Event::where('id', $event)->first();
-        // dd($event);
         $page_title = 'Update an event';
         $rooms = Room::orderBy('id', 'asc')->get();
 

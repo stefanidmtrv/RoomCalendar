@@ -73,17 +73,6 @@ class EventController extends Controller
         return redirect()->route('availability', ['room' => $event->room_id]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Event $event)
-    {
-        return view('frontend.events.show', ['event' => $event]);
-    }
-
     public function delete($event)
     {
         
