@@ -4,13 +4,11 @@ namespace App\Http\Controllers\Backend;
 
 
 use App\Http\Controllers\Controller;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use App\Models\Event;
 use App\Models\Room;
+use App\Mail\RoomBooked;
+use Mail;
 
 
 class BackEventController extends Controller
@@ -56,6 +54,14 @@ class BackEventController extends Controller
             'start_date_time' => $request->start_date_time,
             'end_date_time' => $request->end_date_time
         ]);
+
+        if($event->user_number != null) {
+            $email = $event->user_number . "@swansea.ac.uk";
+ 
+            
+         Mail::to($email)
+             ->send(new RoomBooked($event));
+         }
 
         return redirect()->route('admin.event')->with('message', 'An event has been created');
     }

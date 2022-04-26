@@ -3,15 +3,11 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Models\Room;
-use App\Models\Pin;
 use App\Models\Event;
 use App\Http\Controllers\Controller;
 use App\Models\StNum;
-use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use Illuminate\Contracts\Session\Session;
-use Illuminate\Support\Facades\DB;
 
 
 class FrontController extends Controller
@@ -29,8 +25,7 @@ class FrontController extends Controller
 
     public function show(Room $room,  Request $request)
     {
-        //$bb = Carbon::parse(Carbon::now()->startOfWeek()->addWeekday(1)->format('Y-m-d 12:50:00'))->isPast();
-        //dd($bb);
+        
         $stnum = $request->session()->get('stnum');
         
         
@@ -72,9 +67,6 @@ class FrontController extends Controller
 
     public function showAvailability(Request $request, Room $room)
     {
-        
-        // $lastd = Carbon::now()->floorHour(1);
-        // dd($lastd);
 
         $stnum = $request->session()->get('stnum');
         
@@ -130,18 +122,17 @@ class FrontController extends Controller
     }
 
    
-    public function pinStore(Request $request)
-    {
+    // public function pinStore(Request $request)
+    // {
 
-        $rooms = Room::get();
+    //     $rooms = Room::get();
 
-        if ($request->stnum) {
-            $stnum = new StNum();
-            $stnum->stnum = $request->stnum;
-            // $pin->room = 0;
-            $stnum->Save();
-        }
-        return view('admin.rooms.index', ['rooms' => $rooms]);
-    }
+    //     if ($request->stnum) {
+    //         $stnum = new StNum();
+    //         $stnum->stnum = $request->stnum;
+    //         $stnum->Save();
+    //     }
+    //     return view('admin.rooms.index', ['rooms' => $rooms]);
+    // }
 
 }

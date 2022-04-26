@@ -14,8 +14,6 @@ use App\Models\Room;
 
 require __DIR__ . '/auth.php';
 
-
-
 Route::namespace('Backend')->prefix('admin')->name('admin.')->group(function () {
     Route::group(['middleware' => ['role:admin']], function () {
 
@@ -70,14 +68,16 @@ Route::namespace('Frontend')->group(function () {
     Route::get('rooms', [FrontController::class, 'rooms'])->name('rooms');
     Route::get('/availability/{room}', [FrontController::class, 'showAvailability'])->name('availability');
     Route::get('/rooms/{room}', [FrontController::class, 'show'])->name('rooms.show');
-    Route::get('/rooms/pin', [FrontController::class, 'pinInit'])->name('rooms.pin');
+    // Route::get('/rooms/pin', [FrontController::class, 'pinInit'])->name('rooms.pin');
     Route::post('/rooms/pin', [FrontController::class, 'pinCheck'])->name('rooms.pin');
-    Route::post('/rooms/pin-store', [FrontController::class, 'pinStore'])->name('pin.store');
+    // Route::post('/rooms/pin-store', [FrontController::class, 'pinStore'])->name('pin.store');
     
     //Event
-    Route::get('user/event/delete/{id}', [EventController::class, 'delete'])->name('user.event.delete')->middleware('signed');
-    Route::get('/generate-signature/{id}', [EventController::class,'signature'])->name('signature');
     Route::get('/rooms/room/{event}', [EventController::class, 'show'])->name('events.show');
     Route::get('/rooms/room/event/create/{slot1}/{slot2}/{date}/{roomid}', [EventController::class, 'create'])->name('events.create');
-    Route::post('/rooms/room/event', [EventController::class, 'store'])->name('events.store');
+    Route::post('/rooms/room/event', [EventController::class, 'store'])->name('events.store'); 
+    
+    //Signature
+    Route::get('user/event/delete/{id}', [EventController::class, 'delete'])->name('user.event.delete')->middleware('signed');
+    // Route::get('/generate-signature/{id}', [EventController::class,'signature'])->name('signature');
 });

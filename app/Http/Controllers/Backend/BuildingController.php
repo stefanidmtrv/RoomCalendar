@@ -56,6 +56,7 @@ class BuildingController extends Controller
 
         return redirect()->route('admin.building')->with('message', 'A building has been created');
     }
+    
     public function edit($building)
     {
         $building = Building::where('id', $building)->first();
