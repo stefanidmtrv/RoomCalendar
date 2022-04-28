@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="col-md-12 text-center">
-                    <button type="submit" class="btn btn-secondary" value="Submit">Submit</button>
+                    <button type="submit"  class="btn btn-secondary" value="Submit">Submit</button>
                 </div>
             </form>
 

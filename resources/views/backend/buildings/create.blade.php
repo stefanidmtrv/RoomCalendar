@@ -32,12 +32,12 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Latitude<span class="text-danger">*</span></label>
-                            <input type="number" class="form-control " placeholder="Latitude" name="latitude"
+                            <input type="number" step="any" class="form-control " placeholder="Latitude" name="latitude"
                                 value="{{ old('latitude') }}" />
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Longitude<span class="text-danger">*</span></label>
-                            <input type="number" class="form-control " placeholder="Longitude" name="longitude"
+                            <input type="number" step="any" class="form-control " placeholder="Longitude" name="longitude"
                                 value="{{ old('longitude') }}" />
                         </div>
                         <center>

@@ -14,9 +14,8 @@
                     Number
                     Management</a>
             </div>
-            <div class="p-2 bd-highlight">
-                <a href="{{ route('admin.building') }}" type="button" class="btn btn-secondary btn-lg">Building
-                    Management</a>
+            <div  class="p-2 bd-highlight">
+                <a href="{{ route('admin.building') }}" dusk="idk" type="button"  class="btn btn-secondary btn-lg">Building Management</a>
             </div>
             <div class="p-2 bd-highlight">
                 <a href="{{ route('admin.floor') }}" type="button" class="btn btn-secondary btn-lg">Floor
