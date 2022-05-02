@@ -64,7 +64,7 @@
                     Available </p> 
             </h1>
             
-                 <a class="btn btn-success btn-lg shadow p-3 mb-2" id="idk" href="{{ route('events.create',
+                 <a class="btn btn-success btn-lg shadow p-3 mb-2" href="{{ route('events.create',
                     ['slot1'=> $lastHourNoDate, 'slot2' => $nextHourNoDate, 
                     'date' => $currentDate, 'roomid' => $room->id]) }}">Book now</a>
                 

@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Chrome;
 use Tests\DuskTestCase;
  
-class EventTest extends DuskTestCase
+class ExampleTest extends DuskTestCase
 {
     use DatabaseMigrations;
 
@@ -19,12 +19,8 @@ class EventTest extends DuskTestCase
     public function test_basic_example()
     {
         $this->browse(function ($browser) {
-            $browser->visit('admin/stmgmt/create')
-                    
-                    ->type('stnum', '1234')
-                    
-                    ->press('Submit')
-                    ->assertPathIs('admin/stmgmt');
+            $browser->visit('/')
+                    ->assertSee('Calendar');
         });
     }
 }

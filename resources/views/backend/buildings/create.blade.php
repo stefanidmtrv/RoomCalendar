@@ -17,7 +17,7 @@
 
                         <div class="mb-3">
                             <label class="form-label">Name <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control " placeholder="Name" name="name"
+                            <input type="text" id='name' class="form-control " placeholder="Name" name="name"
                                 value="{{ old('name') }}" />
                         </div>
                         <div class="mb-3">
@@ -43,8 +43,8 @@
                         <center>
                             <button type="submit" class="btn btn-secondary">Submit</button>
                         </center>
-                    </div>
-                </form>
+                    </form>
+                </div>
 
         </x-create-card>
     </x-slot>

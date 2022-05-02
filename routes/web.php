@@ -79,5 +79,4 @@ Route::namespace('Frontend')->group(function () {
     
     //Signature
     Route::get('user/event/delete/{id}', [EventController::class, 'delete'])->name('user.event.delete')->middleware('signed');
-    // Route::get('/generate-signature/{id}', [EventController::class,'signature'])->name('signature');
 });
