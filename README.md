@@ -88,5 +88,5 @@ A confirmation email is sent out to anyone who has booked a slot. We used Mailtr
 ![email](https://user-images.githubusercontent.com/74249819/220362389-79222aac-221e-473b-94bf-21aa88850f78.PNG)
 
 ## Create new event form
-We have made sure 
+
 ![create_event](https://user-images.githubusercontent.com/74249819/220362520-2753b237-fa8f-41e0-8179-231ba4076952.PNG)
